@@ -2,6 +2,20 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 function Login() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const handleLogin = (e) => {
+        e.preventDefault();
+        
+        if (!username || !password) {
+            alert("Please enter both username and password.");
+            return;
+        }
+        console.log("Logging in with:", username, password);
+        setUsername("");
+        setPassword("");
+    };
     return (
       <div class = "block">
         <div class = "login-block">
