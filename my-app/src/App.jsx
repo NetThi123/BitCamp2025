@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Login from "./pages/Login";
+import College_Finder from "./pages/College_Finder";
 
 function App() {
   return (

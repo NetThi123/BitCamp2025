@@ -46,16 +46,60 @@ body {
   background-color: #659287
 }
 
-.block, div{
+.block{
   display: flex;
+  gap: 4rem;
+  padding: 2rem;
   align-items: center;
-  justify-content: space-between; 
-  flex-wrap: nowrap;
-  gap: 10px;
 }
 
 .login-block{
   background-color: white;
-  padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 300px;
+  min-height: 300px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px #B1C29E;
+  align-items: center;
+}
+
+.login-header{
+  size: 0.5rem;
+  color: #659287;
+  margin-bottom: 0.05rem;
+}
+
+.login-form{
+  padding: 10px;
+  max-width: 200px;
+}
+.login-form, p{
+  font-family: monospace;
+  text-align: left;
+  color:#659287;
+
+}
+.login-form, input{
+  padding: 5px;
+}
+
+button{
+  display: block;
+  margin: 1rem auto 0 auto;
+  font-family: 'monaco', monospace;
+  background-color: #659287;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 1rem;
+  color: white;
+  border:#659287;
+}
+
+button:hover{
+  box-shadow: 2px 2px #B1C29E;
 }
 
