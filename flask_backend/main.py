@@ -11,10 +11,23 @@ def static_proxy(path):
     return send_from_directory(app.static_folder, path)
 
 # Your API routes would be prefixed, like:
-@app.route("/api/hello")
-def hello():
+@app.route("/api/get_colleges")
+def get_colleges():
     
-    
-    return {"message": "Hi from Flask!"}
+    return {"colleges": [
+        {
+            "name": "University of Maryland: College Park",
+            "admitted": True,
+            "files_uploaded": 2,
+        },
+
+        {
+            "name": "University of North Carolina: Chapel Hill",
+            "admitted": False,
+            "files_uploaded": 0,
+        }
+    ]}
+
+
 
 app.run()
