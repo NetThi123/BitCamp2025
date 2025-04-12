@@ -1,0 +1,50 @@
+.block{
+  display: flex;
+  gap: 4rem;
+  padding: 2rem;
+  margin-left: 240px;
+}
+
+.login-block{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    min-height: 300px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px #B1C29E;
+    align-items: center;
+  }
+  
+  .login-header{
+    size: 0.25rem;
+    color: #659287;
+    margin-bottom: 0.05rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .login-form{
+    padding: 10px;
+    max-width: 200px;
+  }
+  .login-form, p{
+    font-family: monospace;
+    text-align: left;
+    color:#659287;
+    background-color: transparent;
+  }
+
+  .login-form, input{
+    padding: 10px;
+    width: 220px;
+    margin-right: 40px;
+    border-radius: 10px;
+  }
+
+  button:hover{
+    box-shadow: 2px 2px #B1C29E;
+    gap: 0.5rem;
+  }
