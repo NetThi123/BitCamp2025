@@ -46,15 +46,33 @@ h3 {
   color: #9c688a;
 }
 
+.navbar-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap:10px;
+}
 /* Navigation Bar */
-nav {
+nav{
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   background-color: #96d6c6;
   padding: 1.25rem;
+}
+
+a {
+  color: inherit; /* Inherit color from parent */
+  text-decoration: inherit; /* Remove underline */
+}
+
+a:hover {
+  color: inherit; /* Prevent default blue hover color */
+  text-decoration: inherit; 
 }
 
 nav a {
@@ -63,6 +81,52 @@ nav a {
   padding: 0 1.5rem;
   text-align: left;
 }
+
+.logo{
+  margin-left: 2rem;
+}
+
+.topnav {
+  position: relative;
+}
+
+.topnav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.topnav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+
+  transition: width ease-in-out 250ms;
+}
+
+.topnav a:hover::before {
+  width: 100%;
+}
+
+.topnav a:hover {
+  color: #ffffff;
+}
+
+nav .login-link{
+  margin-left: 500px;
+}
+
+
+
 
 
 
