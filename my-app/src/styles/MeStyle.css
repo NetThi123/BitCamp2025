@@ -1,0 +1,102 @@
+.container{
+    margin-left: 30rem;
+    align-items: center;
+}
+
+.myInfoHead {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5rem;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-form, label{
+    border: black;
+    font-family:monospace;
+    font-size: 1rem;
+    width: 200px;
+}
+
+.user-form, input{
+    border-radius: 0.5rem;
+    margin-top: 0.2rem;
+    border: 1px solid #659287;
+    padding: 8px;
+    font-size: 0.75rem;
+    width: 18rem;
+    font-family: monospace;
+}
+
+.meInput{
+    color:#659287;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+}
+
+input:focus {
+    box-shadow: 0 4px 12px #B1C29E;
+    outline: none;
+}
+
+textarea{
+    border-radius: 0.5rem;
+    border:#659287;
+    width: 18rem;
+    height:5rem;
+    color:#659287;
+    padding: 0.75rem;
+}
+
+select{
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-family: monospace;
+    color:#659287;
+    border: 1px solid #659287;
+    size: 0.75rem;
+    width: 19.5rem;
+}
+
+select:focus {
+    box-shadow: 0 4px 12px #B1C29E;
+    outline: none;
+}
+
+textarea:focus{
+    box-shadow: 0 4px 12px #B1C29E;
+    outline: none;
+}
+
+.me-button{
+    background-color: #B1C29E;
+    width: 19.8rem;
+}
+
+.me-button:hover{
+    box-shadow: 0 0 5px #B1C29E;
+}
+
+.preview{
+    width: 15rem;
+    background-color: white;
+    color:#659287;
+    padding: 3rem;
+    margin-bottom: 5rem;
+    border-radius: 0.5rem;
+}
+
+
+.preview p{
+    background: transparent;
+    color:#659287;
+    font-family: monospace;
+}
+
+
+
+
+  
