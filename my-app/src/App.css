@@ -46,14 +46,34 @@ h3 {
   color: #9c688a;
 }
 
+
+/* Navigation Bar */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@600&display=swap');
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+
 .navbar-container{
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
   gap:10px;
+  background-color: #96d6c6;
 }
-/* Navigation Bar */
+
 nav{
   position: sticky;
   top: 0;
@@ -61,7 +81,6 @@ nav{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #96d6c6;
   padding: 1.25rem;
 }
 
