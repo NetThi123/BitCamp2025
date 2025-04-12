@@ -10,8 +10,9 @@ function AddSchool() {
   const handleSelect = (school) => {
     if (!selectedSchools.find(s => s.value === school.value)) {
       setSelectedSchools(prev => [...prev, { ...school, file: null }]);
+      setIsModalOpen(false); // close modal after selecting
     }
-    setIsModalOpen(false); // close modal after selecting
+    
   };
 
   const handleFileUpload = (event, schoolValue) => {

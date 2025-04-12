@@ -12,7 +12,7 @@ function HomePage() {
             <header>
                 <div className="intro-text">
                     <div id="side-text">
-                        <h1>Hello! I'm Netra Thiru</h1>
+                        <h1>Hello! I'm Harrison Padgett</h1>
                         <p>A computer science student from Fremont, CA currently studying at the University of Maryland</p>
                     </div>
                 </div>
