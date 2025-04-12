@@ -9,7 +9,7 @@ function HomePage() {
         <div>
            <VideoBg />
            <img src={picture} alt="Comp8" style={{ width: '100%', height: 'auto' }} />
-            <header>
+            <header> 
                 <div className="intro-text">
                     <div id="side-text">
                         <h1>Hello! I'm Harrison Padgett</h1>
