@@ -7,7 +7,7 @@ import subprocess
 
 api_blueprint = Blueprint('api', __name__)
 
-# Your API routes would be prefixed, like:
+# This is an API route that always returns the same thing:
 @api_blueprint.route("/api/get_colleges")
 def get_colleges():
     
@@ -24,3 +24,15 @@ def get_colleges():
             "files_uploaded": 0,
         }
     ]}
+
+# This is an API route that returns something depending on the user (protected means login required):
+@api_blueprint.route('/api/protected', methods=['GET'])
+@jwt_required()
+def protected():
+    # current_user will be the username of the currently logged in user.
+    current_user = get_jwt_identity()
+
+    print(f"current user: {current_user}") # log it
+    
+    # In this case, just return a hello message with their name.
+    return jsonify({"message": f"Hello {current_user}, you accessed a protected route!"})

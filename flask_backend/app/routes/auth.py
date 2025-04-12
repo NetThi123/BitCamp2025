@@ -36,11 +36,3 @@ def login():
         return jsonify({"success": True, "token": access_token})
 
     return jsonify({"success": False, "message": "Invalid credentials."}), 401
-
-@auth_blueprint.route('/api/protected', methods=['GET'])
-@jwt_required()
-def protected():
-    current_user = get_jwt_identity()
-    print(f"current user: {current_user}")
-    print(users_db)
-    return jsonify({"message": f"Hello {current_user}, you accessed a protected route!"})
