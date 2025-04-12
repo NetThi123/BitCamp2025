@@ -1,0 +1,46 @@
+
+
+#next-section {
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    height: 100vh; /* Makes the section take up the full viewport height */
+    text-align: center; /* Centers the text */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    padding: 2rem; /* Optional: Add padding */
+}
+
+#next-section h1 {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 1rem; /* Add spacing below the heading */
+    color: #333; /* Optional: Change text color */
+}
+
+#next-section p {
+    font-size: 1.2rem; /* Adjust font size */
+    color: #555; /* Optional: Change text color */
+    background-color: rgb(255, 255, 255)
+}
+
+.info1{
+    padding: 200px;
+    background-color: #659287;
+}
+
+.info2{
+    background-color: white;
+    padding: 200px;
+    color: #659287;
+}
+
+.info3{
+    padding: 200px;
+    background-color: #659287;
+}
+
+.info4{
+    padding: 200px;
+    background-color: white;
+    color:#659287;
+}
