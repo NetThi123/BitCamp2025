@@ -1,5 +1,5 @@
 import React from 'react';
-import './VideoBg.css'; // Optional: styles in separate file
+import "../styles/VideoBg.css"; 
 import beeVideo from "../assets/bee.mp4";
 
 
