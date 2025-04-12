@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  padding: 10px;
+  background-color: #659287
+}
+
+.block, div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.login-block{
+  background-color: white;
+  padding-left: 100px;
+}
+
