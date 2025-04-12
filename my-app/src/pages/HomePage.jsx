@@ -10,8 +10,47 @@ import { useEffect } from 'react';
 function HomePage() {
 
     useEffect(() => {
-        AOS.init({ duration: 1000, once: false, mirror: true, offset: 120, easing: 'ease-in-out' });
+        AOS.init({
+          duration: 1000,
+          once: false,
+          mirror: true,
+          offset: 120,
+          easing: 'ease-in-out',
+        });
+      
+        const target = document.querySelector('.scroll-lock-section');
+        const content = document.querySelector('.info4-content');
+        let locked = false;
+      
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const entry = entries[0];
+            if (entry.isIntersecting && !locked) {
+              locked = true;
+      
+              // Lock scroll
+              document.body.classList.add('scroll-locked');
+      
+              // Trigger animation
+              content.classList.add('animate-in');
+      
+              // Unlock scroll after animation completes
+              setTimeout(() => {
+                document.body.classList.remove('scroll-locked');
+              }, 1600); // Adjust based on transition duration
+            }
+          },
+          { threshold: 0.9 }
+        );
+      
+        if (target) {
+          observer.observe(target);
+        }
+      
+        // Clean up on unmount
+        return () => observer.disconnect();
       }, []);
+      
 
     return (
 
@@ -37,8 +76,11 @@ function HomePage() {
                 <h2>Negotiate for more...</h2>
                 </div>
 
-                <div className="info4" data-aos="fade-up">
-                <h2>And ask the what-ifs that keep you up at night</h2>
+                <div className="info4 scroll-lock-section" data-aos="fade-up">
+                    <div className="info4-content">
+                        <h2>And ask the what-ifs that keep you up at night</h2>
+                        <p>We’ll help you break them down with data that matters.</p>
+                    </div>
                 </div>
 
             {/*<header>
