@@ -1,9 +1,14 @@
 import React from 'react';
+import VideoBg from "../components/VideoBg";
 import { Link } from "react-router-dom";
+import picture from '../assets/Composition8.jpg'; // adjust path as needed
 
 function HomePage() {
     return (
+
         <div>
+           <VideoBg />
+           <img src={picture} alt="Comp8" style={{ width: '100%', height: 'auto' }} />
             <header>
                 <div className="intro-text">
                     <div id="side-text">

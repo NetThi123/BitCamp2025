@@ -46,27 +46,8 @@ h3 {
   color: #9c688a;
 }
 
-/* Navigation Bar */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: flex-start;
-  background-color: #96d6c6;
-  padding: 1.25rem;
-}
 
-nav a {
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 0 1.5rem;
-  text-align: left;
-}
 
-nav .topnav > a:not(:last-child) {
- 
-}
 
 /* Header */
 header {
