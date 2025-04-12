@@ -185,6 +185,7 @@ header {
   border-radius: 5px;
 }
 
+
 /* Projects Section */
 #projects {
   padding-top: 5rem;
@@ -335,9 +336,27 @@ iframe {
 
 .social-link {
   display: flex;
+  gap: 4rem;
+  padding: 2rem;
   align-items: center;
   gap: 0.5rem;
 }
+
+.form-field input{
+  border: 1px solid #659287;
+}
+
+button{
+  width: 240px;
+  font-family: 'monaco', monospace;
+  background-color: #659287;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 1rem;
+  color: white;
+  border:#659287;
+}
+
 
 .social-link img {
   width: 1.5rem;
