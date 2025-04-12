@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function HomePage() {
+function LoggedInHome() {
     return (
         <div>
             <nav>
                 <div className="topnav">
-                    <a className="active" href="#">Home</a>
+                    <a className="active" href="#about">Home</a>
+                    <li><a href="#">Me</a></li>
+                    <li><a href="#">My Colleges</a></li>
                     <Link to="/Login.jsx">Log In/Sign Up</Link>
                 </div>
             </nav>
@@ -39,4 +41,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default LoggedInHome;
