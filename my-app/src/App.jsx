@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Login from "./pages/Login";
-import College_Finder from "./pages/College_Finder";
+import My_Colleges from "./pages/My_Colleges";
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
 import { BrowserRouter } from "react-router-dom";
@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/My_Colleges" element={<My_Colleges />} />
         </Routes>
       </BrowserRouter>
 
