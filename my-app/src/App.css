@@ -204,13 +204,6 @@ header {
   border-radius: 5px;
 }
 
-.block{
-  display: flex;
-  gap: 4rem;
-  padding: 2rem;
-  align-items: center;
-}
-
 /* Projects Section */
 #projects {
   padding-top: 5rem;
@@ -381,6 +374,7 @@ button{
   color: white;
   border:#659287;
 }
+
 
 .social-link img {
   width: 1.5rem;

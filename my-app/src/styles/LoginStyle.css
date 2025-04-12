@@ -1,3 +1,10 @@
+.block{
+  display: flex;
+  gap: 4rem;
+  padding: 2rem;
+  margin-left: 240px;
+}
+
 .login-block{
     background-color: white;
     display: flex;
@@ -13,9 +20,10 @@
   }
   
   .login-header{
-    size: 0.5rem;
+    size: 0.25rem;
     color: #659287;
     margin-bottom: 0.05rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
   .login-form{
@@ -26,7 +34,7 @@
     font-family: monospace;
     text-align: left;
     color:#659287;
-  
+    background-color: transparent;
   }
 
   .login-form, input{
