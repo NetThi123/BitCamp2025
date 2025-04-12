@@ -84,12 +84,18 @@ body {
 
 }
 .login-form, input{
-  padding: 5px;
+  padding: 10px;
+  width: 220px;
+  margin-right: 40px;
+  border-radius: 10px;
+}
+
+.form-field input{
+  border: 1px solid #659287;
 }
 
 button{
-  display: block;
-  margin: 1rem auto 0 auto;
+  width: 240px;
   font-family: 'monaco', monospace;
   background-color: #659287;
   margin-top: 50px;
