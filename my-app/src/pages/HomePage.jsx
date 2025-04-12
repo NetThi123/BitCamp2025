@@ -8,7 +8,12 @@ function HomePage() {
 
         <div>
            <VideoBg />
-           <img src={picture} alt="Comp8" style={{ width: '100%', height: 'auto' }} />
+           <div id="next-section" className="next-section">
+                <h2>Explore Colleges</h2>
+                    <p>Here's where your main content goes.</p>
+            
+                <img src={picture} alt="Comp8" style={{ width: '100%', height: 'auto' }} />
+            </div>
             <header>
                 <div className="intro-text">
                     <div id="side-text">
