@@ -28,19 +28,7 @@ def get_user_response(user_id, user_message):
     chat = user_sessions[user_id]
     
     # Send message and get response
-    if user_message == "1":
-        #response = chat.send_realtime_input(image)
-        [
-            {"text": "What is in this image?"},
-            {"image": image}
-        ]
-        response = chat.send_message(image)
-        print(response.text)
-        response = chat.send_message("What is in this image?")
-        print(response.text)
-        #response = chat.send_message(contents=["What is this image?", image])
-    else:
-        response = chat.send_message(user_message)
+    response = chat.send_message(user_message)
     
     return response.text
 
