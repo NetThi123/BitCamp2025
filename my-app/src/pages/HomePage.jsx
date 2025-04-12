@@ -4,12 +4,6 @@ import { Link } from "react-router-dom";
 function HomePage() {
     return (
         <div>
-            <nav>
-                <div className="topnav">
-                    <a className="active" href="#">Home</a>
-                    <Link to="/Login.jsx">Log In/Sign Up</Link>
-                </div>
-            </nav>
             <header>
                 <div className="intro-text">
                     <div id="side-text">
