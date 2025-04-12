@@ -111,29 +111,30 @@ function CollegeDropdown({ onSelect }) {
   };
 
   return (
-    <div style={{ padding: '1rem' }}>
+    <div style={{ marginTop: '0.5rem'}}>
       <Select
         styles={customStyles}
         options={schools}
         onChange={handleChange}
         placeholder="Select schools"
       />
-      <button
-        onClick={handleAddSchools}
-        style={{
-          marginTop: '1rem',
-          backgroundColor: '#007bff',
-          color: '#fff',
-          border: 'none',
-          padding: '8px 16px',
-          borderRadius: '6px',
-          fontWeight: 'bold',
-          cursor: 'pointer'
-        }}
-      >
-        Confirm Selection
-      </button>
-    </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+  <button
+    onClick={handleAddSchools}
+    style={{
+      backgroundColor: '#007bff',
+      color: '#fff',
+      border: 'none',
+      padding: '8px 16px',
+      borderRadius: '6px',
+      fontWeight: 'bold',
+      cursor: 'pointer'
+    }}
+  >
+    Confirm Selection
+  </button>
+</div>
+</div>
   );
 }
 

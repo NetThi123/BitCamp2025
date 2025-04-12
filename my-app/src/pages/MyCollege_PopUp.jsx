@@ -6,10 +6,11 @@ function MyCollege_PopUp({ isOpen, onClose, children }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Select Your School</h2>
-        <button className="modal-close-btn" onClick={onClose}>
+      <button className="modal-close-btn" onClick={onClose}>
         &times;
         </button>
+        <h2>Select Your School</h2>
+    
         {children}
       </div>
     </div>
