@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function HomePage() {
     return (
@@ -10,7 +11,7 @@ function HomePage() {
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Me</a></li>
                         <li><a href="#">My Colleges</a></li>
-                        <li><a href="#">Log In/ Sign Up</a></li>
+                        <li><Link to="/login">Log In/ Sign Up</Link></li>
                     </ul>
                 </nav>
             </div>
