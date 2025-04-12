@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Login from "./pages/Login";
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import Login from './pages/Login';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div>
-      <Login />
-    </div>
+    <>
+     {/* 
+      <div>
+        <Login />
+      </div>
+      */}
+      <div>
+        <HomePage />
+      </div>
+    </>
   );
 }
 
-
-export default App
+export default App;
