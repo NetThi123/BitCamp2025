@@ -1,29 +1,43 @@
 .me-container form{
     padding-bottom: 3rem;
-    margin-left: 27rem;
-    margin-bottom: 10rem;
-    align-items: center;
+    margin: 3rem;
+    margin-left: 15rem;
     background-color:#659287;
-    width: 25rem;
+    width: 50rem;
+    align-items: center;
 }
 
 .myInfoHead {
     margin-top: 2rem;
     font-family: 'Montserrat', sans-serif;
-    padding: 0.5rem;
     color:#659287;
 }
 
-.me-user-form {
+.me-user-form{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+}
+
+.me-block {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 20px;
+    margin-bottom: 2rem;
+}
+
+.form-column{
+    display: flex;
+    flex-direction: column;
+    gap: 0.938rem;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
 }
 
 .me-user-form, label{
     font-family:monospace;
     font-size: 1rem;
-    width: 300px;
+    width: 19rem;
     padding: 0.625rem;
     color: white;
 }
@@ -34,15 +48,15 @@
     border: 1px solid #659287;
     padding: 8px;
     font-size: 0.75rem;
-    width: 17.5rem;
+    width: 19rem;
     font-family: monospace;
-    margin-left: 1rem;
 }
 
 .meInput{
     color:#659287;
     font-size: 0.9rem;
     padding: 0.75rem;
+    background-color: white;
 }
 
 input:focus {
@@ -53,11 +67,12 @@ input:focus {
 textarea{
     border-radius: 0.5rem;
     border:#659287;
-    width: 17.5rem;
+    width: 19rem;
     height:5rem;
     color:#659287;
     padding: 0.75rem;
     font-size: 0.035rem;
+    background-color: white;
 }
 
 select{
@@ -67,7 +82,8 @@ select{
     color:#659287;
     border: 1px solid #659287;
     size: 0.75rem;
-    width: 17.5rem;
+    width: 19rem;
+    background-color:white;
 }
 
 select:focus {
@@ -81,7 +97,8 @@ textarea:focus{
 }
 
 .me-button{
-    margin-top: 2rem;
+    margin-top: 3rem;
+    margin: 1rem;
     border-radius:0.5rem;
     background-color: #B1C29E;
     width: 17.5rem;
@@ -90,11 +107,13 @@ textarea:focus{
 }
 
 .me-edit-button{
-    background-color:transparent;
+    background-color:white;
     border: 1px solid #659287;
     width: 19rem;
     border-radius:0.5rem;
-    color: #659287
+    color: #659287;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
 }
 
 .me-button:hover{
@@ -106,28 +125,38 @@ textarea:focus{
 }
 
 .preview{
-    width: 15rem;
+    width: 50rem;
     background-color: white;
     color:#659287;
     padding: 3rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
     border-radius: 0.5rem;
-    margin-left: 27rem;
-    width: 25rem;
+    margin-left: 15rem;
     border: 1px solid #659287;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .colleges-button{
-    margin-top: 2rem;
+    margin-left: 2.5rem;
     border-radius: 0.5rem;
     width: 19rem;
-    height: 4rem;
+    margin-top: 1rem;
 }
 
 .preview p{
     background: transparent;
     color:#659287;
     font-family: monospace;
+}
+
+.me-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
 }
 
 

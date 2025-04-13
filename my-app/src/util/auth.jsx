@@ -115,7 +115,6 @@ export async function get_me_data() {
 }
 
 
-
 export async function start_chat() {
   const address = "/start_chat"    
   const token = localStorage.getItem('token');
@@ -131,3 +130,23 @@ export async function start_chat() {
   console.log(resp)
   return resp.reply;
 }
+
+export async function addCollege(schoolName) {
+  const token = localStorage.getItem("token");
+  const username = localStorage.getItem("username");
+
+  const response = await fetch(`${API_URL}/add_college`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      college: schoolName,
+    }),
+  });
+
+  const data = await response.json();
+  return data;
+}
+

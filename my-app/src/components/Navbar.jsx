@@ -32,8 +32,8 @@ function Navbar({ loggedIn }) {
                     <Link to="/me">My info</Link>
                     <Link to="/colleges">My Colleges</Link>
                     <Link to="/talk">talk with aiden</Link>
-
                     <Link to="/homepage" className="login-link" onClick={() => {do_logout(); console.log("logged out")}}>Log out</Link>
+
                 </div>
             </nav>
         </div>
