@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
+import image from '../assets/image0.png'
 
 function Navbar() {
     const [isVisible, setIsVisible] = useState(true);
@@ -21,7 +22,10 @@ function Navbar() {
 
     return (
         <div className={`navbar-container ${isVisible ? 'show' : 'hide'}`}>
-            <Link to="/homepage" className="logo">My Logo</Link>
+            <div className="icon">
+                <img src={image} alt="Aiden the Dinosaur"/>
+                <Link to="/homepage" className="logo">AIDEN</Link>
+            </div>
             <nav>
                 <div className="topnav">
 
