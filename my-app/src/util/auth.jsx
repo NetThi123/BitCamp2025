@@ -113,3 +113,21 @@ export async function get_me_data() {
   const resp = await response.json();
   return resp;
 }
+
+
+
+export async function start_chat() {
+  const address = "/start_chat"    
+  const token = localStorage.getItem('token');
+
+  const response = await fetch(`${API_URL}` + address, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'GET',
+  });
+  const resp = await response.json();
+  console.log(resp)
+  return resp.reply;
+}

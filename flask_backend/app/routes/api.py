@@ -128,14 +128,3 @@ def set_me_data():
 
     return jsonify({"message": "Me data updated successfully"}), 200
 
-
-"""
-@api_blueprint.route("/api/start_chat", methods=["POST"])
-@jwt_required()
-def send_chat():
-    data = request.get_json()
-    current_user = get_jwt_identity()
-
-    print(f"User said: {message}")
-    return jsonify({"reply": f"Echo: {message}"})"""
-
