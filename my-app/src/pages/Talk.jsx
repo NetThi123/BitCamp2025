@@ -19,7 +19,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/TalkStyle.css'
 import { send_message } from "../util/auth";
 
-import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
   MainContainer,
   ChatContainer,

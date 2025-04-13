@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { login, signup, getProtectedResource } from '../util/auth';
 import '../styles/LoginStyle.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Login() {
     const [loginUser, setLoginUser] = useState("");
@@ -20,9 +23,9 @@ function Login() {
             let data = await login(loginUser, loginPassword)
 
             if (data.success) {
-                alert("logged in successfully!")                                   // <---------------------
+                toast.success("logged in successfully!")                                   // <---------------------
             } else {
-                alert("failed to login! make sure your username and password are correct!")    // <---------------------
+                toast.error("failed to login! make sure your username and password are correct!")    // <---------------------
             }
 
             console.log(resp)
@@ -36,25 +39,25 @@ function Login() {
         e.preventDefault();
         
         if (!newUser || !newPassword) {
-            alert("Please enter both username and password.");   // <---------------------
+            toast.error("Please enter both username and password.");   // <---------------------
             return;
         } else {
             console.log("Logging in with:", newUser, newPassword);
             let data = await signup(newUser, newPassword);
 
             if (data.success) {
-                alert("account created successfully!")        // <---------------------
+                toast.success("account created successfully!")        // <---------------------
 
                 // since we just signed up, log in as well
                 data = await login(newUser, newPassword)
                 if (data.success) {
-                    alert("logged in successfully!")            // <---------------------
+                    toast.success("logged in successfully!")            // <---------------------
                 } else {
-                    alert("failed to login! make sure your username and password are correct!") // <---------------------
+                    toast.error("failed to login! make sure your username and password are correct!") // <---------------------
                 }
                 
             } else {
-                alert("failed to create account! username must be taken!") // <---------------------
+                toast.error("failed to create account! username must be taken!") // <---------------------
             }
 
             console.log(resp)
@@ -111,6 +114,7 @@ function Login() {
                 <button type="submit" onClick={test}>TEST</button>
             </form>
         </div>
+        <ToastContainer />
       </div>
     );
   }
