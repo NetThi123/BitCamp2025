@@ -38,6 +38,7 @@
   }
 
   .login-form input{
+    color: black;
     width: 13.75rem;
     margin-right: 2.5rem;
     border-radius: 10px;
