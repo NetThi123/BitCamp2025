@@ -26,6 +26,7 @@ function Navbar() {
                 <div className="topnav">
                     <Link to="/homepage">Home</Link>
                     <Link to="/colleges">My College</Link>
+                    <Link to="/talk">talk with aiden</Link>
                     <Link to="/login" className="login-link">Log In/Sign Up</Link>
                 </div>
             </nav>
