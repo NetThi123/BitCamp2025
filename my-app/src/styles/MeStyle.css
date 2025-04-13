@@ -76,6 +76,11 @@ textarea:focus{
     width: 19.8rem;
 }
 
+.me-edit.button{
+    background-color:#B1C29E;
+    margin:1rem;
+}
+
 .me-button:hover{
     box-shadow: 0 0 5px #B1C29E;
 }
