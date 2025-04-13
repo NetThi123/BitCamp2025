@@ -24,25 +24,48 @@
 }
 
 .info1{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    font-family: 'Playfair Display', serif;
     padding-top: 200px;
     background-color: #659287;
 }
 
 .info2{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    height: 70vh; /* Makes the section take up the full viewport height */
+    font-family: 'Playfair Display', serif;
     background-color: white;
     padding-top: 200px;
-    color: #659287;
+    color: #000000;
 }
 
 .info3{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    font-family: 'Playfair Display', serif;
     padding-top: 200px;
     background-color: #659287;
 }
 
 .info4{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    font-family: 'Playfair Display', serif;
     padding-top: 200px;
     background-color: white;
     color:#659287;
+}
+
+.info1 h2, .info2 h2, .info3 h2, .info4 h2 {
+    
+    font-family: 'Playfair Display', serif; /* Example font, replace with your desired font */
+    font-size: 2rem; /* Adjust font size */
+    text-align: center; /* Centers the text */
+    line-height: 1.6; /* Adjust line spacing for better readability */
+    color: #333; /* Adjust text color */
+    padding-bottom: 15%;
 }
 
 .scroll-lock-section {
@@ -76,4 +99,43 @@
   body.scroll-locked {
     overflow: hidden;
   }
+
+  .SignUp {
+    background-color: #8c5078;
+    color: white;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    display: inline-block;
+  }
   
+  .SignUp:hover {
+    background-color: #a86190;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  main {
+    margin: 0 auto; /* Center the main section horizontally */
+    padding: 1rem; /* Add some padding for spacing */
+    font-size: 0.9rem; /* Adjust font size if needed */
+    line-height: 1.5; /* Adjust line spacing for readability */
+    max-height: 35vh;
+}
+
+#about p {
+    color: #659287; /* Set the text color to black */
+    background-color: #659287; /* Set the background color to black */
+}
+
+#footer{
+    #footer {
+        background-color: #659287; /* Dark background color */
+    }
+}
