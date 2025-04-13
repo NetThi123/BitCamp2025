@@ -42,8 +42,8 @@ const VideoBg = () => {
         Your browser does not support the video tag.
       </video>
       <div className="video-overlay">
-        <h1> Aiden AI: Your AI Advisor for Financial Aid</h1>
-        <h2>We are helping students with the <u>What If</u></h2>
+        <h1>Stuck in the "What if"s of financial aid?</h1>
+        <h2>Aiden AI: Your AI Advisor for Financial Aid</h2>
         <p>Find the best college for you</p>
             <button
         onClick={() =>
