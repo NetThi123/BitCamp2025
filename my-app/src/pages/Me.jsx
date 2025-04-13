@@ -36,11 +36,11 @@ function Me() {
   };
 
   return (
-    <div className="container">
+    <div className="me-container">
       <h2 className="myInfoHead">MY INFO:</h2>
 
       {!submitted ? (
-        <form className="user-form" onSubmit={handleSubmit}>
+        <form className="me-user-form" onSubmit={handleSubmit}>
           <label>
             NAME:
             <br />
