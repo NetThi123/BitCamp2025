@@ -121,7 +121,6 @@ function Login() {
                 </div>
                 <br></br>
                 <button type="submit" className="login-button" onClick={handleSignup}>SIGN UP</button>
-                <button type="submit" className="login-button" onClick={test}>TEST</button>
             </form>
         </div>
         <ToastContainer />
