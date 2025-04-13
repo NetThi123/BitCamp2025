@@ -4,26 +4,43 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 import subprocess
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+# mongo_uri = os.getenv("MONGO_URI")
+mongo_uri = "mongodb+srv://bitcamp2025hacakthon:HcjMIS1DpOsYwhNh@user-info.o9eojel.mongodb.net/?retryWrites=true&w=majority&appName=User-Info"
+client = MongoClient(mongo_uri)
 api_blueprint = Blueprint('api', __name__)
 
 # This is an API route that always returns the same thing:
-@api_blueprint.route("/api/get_colleges")
+@api_blueprint.route("/api/get_colleges", methods=['GET'])
+@jwt_required()
 def get_colleges():
-    
-    return {"colleges": [
-        {
-            "name": "University of Maryland: College Park",
-            "admitted": True,
-            "files_uploaded": 2,
-        },
+    current_user = get_jwt_identity()
+    colleges_collection = client["UserInfo"]["loginInfo"]  # your DB and collection
+    colleges = list(colleges_collection.find({}, {"_id": 0}))  # exclude Mongo's _id
+    cl = None
+    for entry in colleges:
+        if entry["username"] == current_user:
+            cl = entry["universities"]
 
-        {
-            "name": "University of North Carolina: Chapel Hill",
-            "admitted": False,
-            "files_uploaded": 0,
-        }
-    ]}
+    return jsonify({"colleges": cl})
+
+@api_blueprint.route("/api/add_college", methods=['Get'])
+def add_colleges():
+    colleges_collection = client["UserInfo"]["loginInfo"]  # your DB and collection
+    colleges = list(colleges_collection.find({}, {"_id": 0}))
+    found = False
+    for entry in colleges:
+        if entry["username"] == "disha":
+            for uni in entry["universities"]:
+                print(uni)
+                if uni == "Arizona State University":
+                    found = True
+
+    return jsonify({"unis": x["universities"]})
 
 # This is an API route that returns something depending on the user (protected means login required):
 @api_blueprint.route('/api/protected', methods=['GET'])
@@ -36,3 +53,50 @@ def protected():
     
     # In this case, just return a hello message with their name.
     return jsonify({"message": f"Hello {current_user}, you accessed a protected route!"})
+
+
+@api_blueprint.route('/api/get_me_data', methods=['GET'])
+@jwt_required()
+def get_me_data():
+    current_user = get_jwt_identity()
+    colleges_collection = client["UserInfo"]["loginInfo"]  # your DB and collection
+    colleges = list(colleges_collection.find({}, {"_id": 0}))  # exclude Mongo's _id
+    cl = None
+    for entry in colleges:
+        if entry["username"] == current_user:
+            cl = entry["me"]
+    
+    return jsonify(cl)
+    
+
+@api_blueprint.route('/api/set_me_data', methods=['POST'])
+@jwt_required()
+def set_me_data():
+    current_user = get_jwt_identity()
+    me_data = request.get_json()
+
+    if not me_data:
+        return jsonify({"error": "No data provided"}), 400
+
+    colleges_collection = client["UserInfo"]["loginInfo"]
+
+    result = colleges_collection.update_one(
+        {"username": current_user},
+        {"$set": {"me": me_data}}
+    )
+
+    if result.matched_count == 0:
+        return jsonify({"error": "User not found"}), 404
+
+    return jsonify({"message": "Me data updated successfully"}), 200
+
+
+"""
+@api_blueprint.route("/api/start_chat", methods=["POST"])
+@jwt_required()
+def send_chat():
+    data = request.get_json()
+    current_user = get_jwt_identity()
+
+    print(f"User said: {message}")
+    return jsonify({"reply": f"Echo: {message}"})"""
