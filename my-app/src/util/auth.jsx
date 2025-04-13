@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:5004/api';
 
 export async function signup(username, password) {
   const response = await fetch(`${API_URL}/signup`, {

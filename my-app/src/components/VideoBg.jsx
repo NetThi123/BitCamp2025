@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "../styles/VideoBg.css"; 
-import beeVideo from "../assets/bee.mp4";
 import droneVid1 from "../assets/umich.mp4";
 import droneVid2 from "../assets/moreDrone.mp4";
 
 const VideoBg = () => {
-  const playlist = [beeVideo, droneVid1, droneVid2]; // Your video files
+  const playlist = [droneVid1, droneVid2]; // Your video files
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false); // State to control fade effect
   const videoRef = useRef(null);
