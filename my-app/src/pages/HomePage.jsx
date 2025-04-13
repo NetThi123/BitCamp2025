@@ -63,16 +63,16 @@ function HomePage() {
                     <p>Here's where your main content goes.</p>
             </div>
 
-            <div className="info1" data-aos="fade-up">
+            <div className="info1" data-aos="fade-down">
                 <h2>Upload your financial aid offers</h2>
                 <p>Details about this section...</p>
                 </div>
 
-                <div className="info2" data-aos="fade-up">
+                <div className="info2" data-aos="zoom-in-up">
                 <h2>Unpack the financespeak by talking with Aiden</h2>
                 </div>
 
-                <div className="info3" data-aos="fade-up">
+                <div className="info3" data-aos="fade-down">
                 <h2>Negotiate for more...</h2>
                 </div>
 

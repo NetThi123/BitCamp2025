@@ -24,25 +24,47 @@
 }
 
 .info1{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    font-family: 'Playfair Display', serif;
     padding-top: 200px;
     background-color: #659287;
 }
 
 .info2{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    height: 70vh; /* Makes the section take up the full viewport height */
+    font-family: 'Playfair Display', serif;
     background-color: white;
     padding-top: 200px;
     color: #659287;
 }
 
 .info3{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    font-family: 'Playfair Display', serif;
     padding-top: 200px;
     background-color: #659287;
 }
 
 .info4{
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    font-family: 'Playfair Display', serif;
     padding-top: 200px;
     background-color: white;
     color:#659287;
+}
+
+.info1 h2, .info2 h2, .info3 h2, .info4 h2 {
+    font-family: 'Playfair Display', serif; /* Example font, replace with your desired font */
+    font-size: 2rem; /* Adjust font size */
+    text-align: center; /* Centers the text */
+    line-height: 1.6; /* Adjust line spacing for better readability */
+    color: #333; /* Adjust text color */
+    padding-bottom: 15%;
 }
 
 .scroll-lock-section {
