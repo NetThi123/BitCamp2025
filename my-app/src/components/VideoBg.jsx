@@ -43,7 +43,7 @@ const VideoBg = () => {
         Your browser does not support the video tag.
       </video>
       <div className="video-overlay">
-        <h1> [Name] is your AI powered financial aid sideckick</h1>
+        <h1> Aiden is your AI powered financial aid sideckick</h1>
         <h2>We are helping students with the <u>What If</u></h2>
         <p>Find the best college for you</p>
             <button

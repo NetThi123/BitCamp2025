@@ -16,6 +16,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar />
+      
         <Routes>
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/login" element={<Login />} />

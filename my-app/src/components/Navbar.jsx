@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
-    const [isVisible, setIsVisible] = useState(true);
+
 
     const handleScroll = () => {
         const videoSection = document.getElementById('video-section');
@@ -20,7 +20,7 @@ function Navbar() {
     }, []);
 
     return (
-        <div className={`navbar-container ${isVisible ? 'show' : 'hide'}`}>
+        <div className= "navbar-container">
             <div className="logo">My Logo</div>
             <nav>
                 <div className="topnav">

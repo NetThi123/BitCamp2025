@@ -99,18 +99,11 @@ function HomePage() {
                         Sign Up Here
                     </button>
                     </Link>
-                    <p>&emsp;&emsp;Hello! I’m a computer science major from the Bay Area, currently studying at the University of Maryland, College Park. I’m on track to graduate in May 2027 and am working toward adding minors in math and philosophy to complement my degree.</p>
-                    <p>&emsp;&emsp;My primary interest lies in the exciting field of Artificial Intelligence, and I have some foundational experience in machine learning. Recently, I’ve been diving deeper into full-stack web development to expand my skill set. My experience in frontend development includes building club websites, crafting my personal portfolio site, and contributing to a hackathon project. On the backend, I’ve honed my skills in Java and Python through academic projects and coursework.</p>
-                    <p>&emsp;&emsp;I’m passionate about solving problems, learning new technologies, and exploring how AI and web development intersect to create innovative solutions.</p>
+                    <p>&emsp;&emsp;Hello! I’m a computer science  College Park. I’m on track to graduate in May 2027 and am working toward adding minors in math and philosophy to complement my degree.</p>
                 </div>
             </main> 
             <footer>
-                <a href="http://www.linkedin.com/in/netra-thiru">
-                    <img src="Logos & Icons/magentaLinkedIn.png" alt="LinkedIn Icon" />
-                </a>
-                <a href="https://github.com/NetThi123">
-                    <img src="Logos & Icons/magentaGitHub.png" alt="GitHub Icon" />
-                </a>
+                
             </footer>
         </div>
     );
