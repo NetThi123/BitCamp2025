@@ -41,7 +41,9 @@ function Me() {
 
       {!submitted ? (
         <form className="me-user-form" onSubmit={handleSubmit}>
-          <label>
+            <div className = "me-block">
+            <div className="form-column">
+            <label>
             NAME:
             <br />
             <input type="text" className="meInput" name="name" value={formData.name} onChange={handleChange} />
@@ -72,25 +74,26 @@ function Me() {
           </label>
 
           <label>
-            INTERESTS
+            INTERESTS:
             <br />
             <textarea name="interests" value={formData.interests} onChange={handleChange} />
           </label>
-
-          <label>
-            MAJOR
+            </div>
+            <div className="form-column">
+            <label>
+            MAJOR:
             <br />
             <input type="text" className="meInput" name="major" value={formData.major} onChange={handleChange} />
           </label>
 
           <label>
-            CAREER INTERESTS
+            CAREER INTERESTS:
             <br />
             <textarea name="careerInterests" value={formData.careerInterests} onChange={handleChange} />
           </label>
 
           <label>
-            GENDER
+            GENDER:
             <br />
             <select name="gender" value={formData.gender} onChange={handleChange}>
               <option value="">Select</option>
@@ -103,13 +106,13 @@ function Me() {
           </label>
 
           <label>
-            PRONOUNS
+            PRONOUNS:
             <br />
             <input type="text" className="meInput" name="pronouns" value={formData.pronouns} onChange={handleChange} />
           </label>
 
           <label>
-            ETHNICITY
+            ETHNICITY:
             <br />
             <select name="ethnicity" value={formData.ethnicity} onChange={handleChange}>
               <option value="">Select</option>
@@ -126,33 +129,27 @@ function Me() {
               <option value="mixed">Mixed</option>
               <option value="other">Other</option>
             </select>
+            <label>    </label>
           </label>
-
+            </div>
+            </div>
           <button type="submit" className="me-button">Submit Changes</button>
         </form>
       ) : (
         
         <div className="preview">
-          <p><strong>Name:</strong> {formData.name}</p>
-          <br></br>
+            <div className="preview-p">
+            <p><strong>Name:</strong> {formData.name}</p>
           <p><strong>Age:</strong> {formData.age}</p>
-          <br></br>
           <p><strong>Current Level of Education:</strong> {formData.educationLevel}</p>
-          <br></br>
           <p><strong>Expected Graduation Date:</strong> {formData.graduationDate}</p>
-          <br></br>
           <p><strong>Interests:</strong> {formData.interests}</p>
-          <br></br>
           <p><strong>Major:</strong> {formData.major}</p>
-          <br></br>
           <p><strong>Career Interests:</strong> {formData.careerInterests}</p>
-          <br></br>
           <p><strong>Gender:</strong> {formData.gender}</p>
-          <br></br>
           <p><strong>Pronouns:</strong> {formData.pronouns}</p>
-          <br></br>
           <p><strong>Ethnicity:</strong> {formData.ethnicity}</p>
-          <br></br>
+            </div>
           <button className="me-edit-button" onClick={handleEdit}>Edit Info</button>
           <Link to="/colleges">
             <button className="colleges-button">CONTINUE TO MY COLLEGES</button>
