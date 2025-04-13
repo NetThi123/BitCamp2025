@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import '../styles/My_CollegesStyles.css';
 import CollegeDropdown from './College_Finder';
 import MyCollege_PopUp from './MyCollege_PopUp';
+import { getColleges } from '../util/auth';
 
 function AddSchool() {
   const [selectedSchools, setSelectedSchools] = useState([]);
@@ -14,6 +15,26 @@ function AddSchool() {
     }
     
   };
+
+  // CALL AUTOMATICALLY WHEN PAGE LOADS
+   // Auto-call when page loads
+   const onLoad = async () => {
+    const data = await getColleges();
+    console.log("Hello I am here");
+    console.log(data.colleges)
+    // Transform the data to match your expected selectedSchools format
+    const formatted = data.colleges.map(name => ({
+      label: name,
+      value: name.toLowerCase().replace(/\s+/g, '-'),
+      file: null
+    }));
+    console.log("Hello I am now here heheh");
+    setSelectedSchools(formatted);
+  };
+
+  useEffect(() => {
+    onLoad();
+  }, []);
 
   const handleFileUpload = (event, schoolValue) => {
     const file = event.target.files[0];
