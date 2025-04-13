@@ -2,16 +2,24 @@ import { useState, useEffect} from 'react';
 import '../styles/My_CollegesStyles.css';
 import CollegeDropdown from './College_Finder';
 import MyCollege_PopUp from './MyCollege_PopUp';
-import { fileUpload, getColleges, getProtectedResource } from '../util/auth';
+import { fileUpload, getColleges, getProtectedResource, addCollege } from '../util/auth';
+
 
 function AddSchool() {
   const [selectedSchools, setSelectedSchools] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSelect = (school) => {
+  const handleSelect = async (school) => {
     if (!selectedSchools.find(s => s.value === school.value)) {
       setSelectedSchools(prev => [...prev, { ...school, file: null }]);
-      setIsModalOpen(false); // close modal after selecting
+      setIsModalOpen(false);
+  
+      try {
+        const res = await addCollege(school.label); // <-- Use full school name
+        console.log(res.message);
+      } catch (err) {
+        console.error("Error adding college:", err);
+      }
     }
     
   };
@@ -121,7 +129,6 @@ function AddSchool() {
                 Select File
                 <input
                     type="file"
-                    accept=".pdf,.doc,.docx"
                     onChange={(e) => handleFileUpload(e, school.value)}
                     style={{ display: 'none' }}
                 />   

@@ -32,19 +32,40 @@ def get_colleges():
 
     return jsonify({"colleges": cl})
 
-@api_blueprint.route("/api/add_college", methods=['Get'])
-def add_colleges():
-    colleges_collection = client["UserInfo"]["loginInfo"]  # your DB and collection
-    colleges = list(colleges_collection.find({}, {"_id": 0}))
-    found = False
-    for entry in colleges:
-        if entry["username"] == "disha":
-            for uni in entry["universities"]:
-                print(uni)
-                if uni == "Arizona State University":
-                    found = True
+@api_blueprint.route("/api/add_college", methods=['POST'])
+@jwt_required()
+def add_college():
+    user_collection = client["UserInfo"]["loginInfo"]
+    username = get_jwt_identity()
 
-    return jsonify({"unis": x["universities"]})
+
+    data = request.get_json()
+    new_college = data.get("college")
+
+    # Check for missing data
+    if not (username and new_college):
+        return jsonify({"error": "Missing username or college"}), 400
+
+    # Get user document
+    user_doc = user_collection.find_one({"username": username})
+    if not user_doc:
+        return jsonify({"error": "User not found"}), 404
+
+    # Check if new_college already exists
+    existing_unis = user_doc.get("universities", [])
+    if new_college in existing_unis:
+        return jsonify({"message": f"{new_college} already exists in your list."}), 408
+
+    print(f"adding {new_college}")
+    # Add the new college
+    user_collection.update_one(
+        {"username": username},
+        {"$push": {"universities": new_college}}
+    )
+
+    return jsonify({"message": f"{new_college} added successfully."}), 200
+
+
 
 # This is an API route that returns something depending on the user (protected means login required):
 @api_blueprint.route('/api/protected', methods=['GET'])
@@ -74,12 +95,10 @@ def upload_file():
     if not file or file.filename == '':
         return {"error": "No file uploaded."}, 400
     
-    if not (file.filename.lower().endswith('.pdf') or file.filename.lower().endswith('.doc') or file.filename.lower().endswith('.docx')):
-        return {"error": "Only PDF files allowed."}, 400
     
     existing_files = os.listdir(UPLOAD_FOLDER)
     file_id = len(existing_files) + 1
-    saved_filename = f"{file_id}.pdf"
+    saved_filename = f"{file_id}.png"
 
     file.save(os.path.join(UPLOAD_FOLDER, saved_filename))
 
@@ -128,6 +147,54 @@ def set_me_data():
 
     return jsonify({"message": "Me data updated successfully"}), 200
 
+
+@api_blueprint.route('/api/login', methods=['POST'])
+def login():
+    print("start")
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    c = client["UserInfo"]["loginInfo"]
+
+    # Find the user by username
+    user = c.find_one({"username": username})
+    print(username, password, user)
+
+    if not user:
+        return jsonify({"error": "Invalid username or password"}), 401
+    
+    if user["password"] != password:
+        return jsonify({"error": "Invalid username or password"}), 401
+    
+    access_token = create_access_token(identity=username)
+    return jsonify({"success": True, "token": access_token})
+
+@api_blueprint.route('/api/signup', methods=['POST'])
+def signup():
+    print("start")
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    c = client["UserInfo"]["loginInfo"]
+
+    # Find the user by username
+    user = c.find_one({"username": username})
+    print(username, password, user)
+
+    if user:
+        return jsonify({"error": "Invalid username or password"}), 401
+
+    #hashed_password = generate_password_hash(password)   <-------- HASH!
+    hashed_password = password
+
+    x = c.insert_one({"username": username, "password": password, "universities": [], "files": [], "me": {
+        "age": "", "careerInterests": "", "educationLevel": "", "ethnicity": "", "gender": "", "graduationDate": "",
+        "interests": "", "major": "", "name": "", "pronouns": ""}
+    })
+
+    print(x)
+
+    return jsonify({"success": True, "message": "User created successfully."})
 
 """
 @api_blueprint.route("/api/start_chat", methods=["POST"])
