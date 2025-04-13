@@ -132,3 +132,5 @@ export async function addCollege(schoolName) {
   const data = await response.json();
   return data;
 }
+
+

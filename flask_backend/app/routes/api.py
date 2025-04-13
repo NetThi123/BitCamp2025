@@ -148,6 +148,54 @@ def set_me_data():
     return jsonify({"message": "Me data updated successfully"}), 200
 
 
+@api_blueprint.route('/api/login', methods=['POST'])
+def login():
+    print("start")
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    c = client["UserInfo"]["loginInfo"]
+
+    # Find the user by username
+    user = c.find_one({"username": username})
+    print(username, password, user)
+
+    if not user:
+        return jsonify({"error": "Invalid username or password"}), 401
+    
+    if user["password"] != password:
+        return jsonify({"error": "Invalid username or password"}), 401
+    
+    access_token = create_access_token(identity=username)
+    return jsonify({"success": True, "token": access_token})
+
+@api_blueprint.route('/api/signup', methods=['POST'])
+def signup():
+    print("start")
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    c = client["UserInfo"]["loginInfo"]
+
+    # Find the user by username
+    user = c.find_one({"username": username})
+    print(username, password, user)
+
+    if user:
+        return jsonify({"error": "Invalid username or password"}), 401
+
+    #hashed_password = generate_password_hash(password)   <-------- HASH!
+    hashed_password = password
+
+    x = c.insert_one({"username": username, "password": password, "universities": [], "files": [], "me": {
+        "age": "", "careerInterests": "", "educationLevel": "", "ethnicity": "", "gender": "", "graduationDate": "",
+        "interests": "", "major": "", "name": "", "pronouns": ""}
+    })
+
+    print(x)
+
+    return jsonify({"success": True, "message": "User created successfully."})
+
 """
 @api_blueprint.route("/api/start_chat", methods=["POST"])
 @jwt_required()
