@@ -1,0 +1,18 @@
+[
+    {
+      "username": "disha",
+      "password": "12345",
+      "universities": ["University of Maryland, College Park", "Princeton University", "Arizona State University"]
+    },
+    {
+      "username": "theo",
+      "password": "298342",
+      "universities": ["Boston College", "Brown University", "Arizona State University"]
+    },
+    {
+      "username": "naan",
+      "password": "230955",
+      "universities": ["Clemson University"]
+    }
+  ]
+  

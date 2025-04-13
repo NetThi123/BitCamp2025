@@ -5,7 +5,7 @@ function MyCollege_PopUp({ isOpen, onClose, children }) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content" style={{"background-color":'white', "borderRadius": '10px'}}>
         <h2>Select Your School</h2>
         <button className="modal-close-btn" onClick={onClose}>
         &times;

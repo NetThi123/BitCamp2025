@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@600&display=swap');
+
 h2{
     color: black;
+    font-family: Playfair Display, sans-serif;
+
 }
 .modal-overlay {
     position: fixed;
@@ -28,7 +32,7 @@ h2{
     position: absolute;
     top: 10px;
     right: 12px;
-    background: transparent;
+    background: white;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -41,7 +45,7 @@ h2{
     width: 30px;
     height: 30px;
     padding: 0;
-    background: transparent;
+    background: white;
     color: black;
     border: none;
     border-radius: 50%;
