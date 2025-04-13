@@ -10,8 +10,9 @@ function AddSchool() {
   const handleSelect = (school) => {
     if (!selectedSchools.find(s => s.value === school.value)) {
       setSelectedSchools(prev => [...prev, { ...school, file: null }]);
+      setIsModalOpen(false); // close modal after selecting
     }
-    setIsModalOpen(false); // close modal after selecting
+    
   };
 
   const handleFileUpload = (event, schoolValue) => {
@@ -66,11 +67,15 @@ function AddSchool() {
             <tr key={school.value} style={{ backgroundColor: index % 2 === 0 ? '#f3f3f3' : '#ffffff' }}>
               <td style={{ padding: '12px', border: '1px solid #ccc', color: 'black' }}>{school.label}</td>
               <td style={{ padding: '12px', border: '1px solid #ccc', color: 'black' }}>
+              <label className="custom-file-upload">
+                Upload File
                 <input
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={(e) => handleFileUpload(e, school.value)}
-                />
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={(e) => handleFileUpload(e, school.value)}
+                    style={{ display: 'none' }}
+                />    
+                </label>
                 {school.file && (
                   <span style={{ marginLeft: '10px' }}>✅ {school.file.name}</span>
                 )}
