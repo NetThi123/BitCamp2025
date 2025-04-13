@@ -149,6 +149,7 @@ function Me() {
           <button type="submit" className="me-button">Submit Changes</button>
         </form>
       ) : (
+        
         <div className="preview">
           <p><strong>Name:</strong> {formData.name}</p>
           <br></br>
@@ -171,6 +172,9 @@ function Me() {
           <p><strong>Ethnicity:</strong> {formData.ethnicity}</p>
           <br></br>
           <button className="me-edit-button" onClick={handleEdit}>Edit Info</button>
+          <Link to="/colleges">
+            <button className="colleges-button">CONTINUE TO MY COLLEGES</button>
+          </Link>
         </div>
       )}
     </div>
