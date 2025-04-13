@@ -114,6 +114,23 @@ export async function get_me_data() {
   return resp;
 }
 
+
+export async function start_chat() {
+  const address = "/start_chat"    
+  const token = localStorage.getItem('token');
+
+  const response = await fetch(`${API_URL}` + address, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'GET',
+  });
+  const resp = await response.json();
+  console.log(resp)
+  return resp.reply;
+}
+
 export async function addCollege(schoolName) {
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
@@ -132,5 +149,4 @@ export async function addCollege(schoolName) {
   const data = await response.json();
   return data;
 }
-
 

@@ -11,13 +11,13 @@ import {
   MDBTextArea,
   MDBCardHeader,
 } from "mdb-react-ui-kit";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/TalkStyle.css'
-import { send_message } from "../util/auth";
+import { send_message, start_chat } from "../util/auth";
 
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
@@ -29,8 +29,43 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 
 function Talk () {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{sender: 'bot', text: "Aiden here -- I'm reading over your details, I'll be with you shortly!"}]);
   const [input, setInput] = useState('');
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  const onLoad = async () => {
+    console.log("HELLO1")
+    const reply = await start_chat()
+    console.log(reply)
+    console.log("HELLO2")
+
+    console.log("HELLO3")
+
+    let replies = reply.split("------").map(a => a.trim())
+    console.log(reply.split("------"))
+    console.log(reply.split("------").map(a => a.trim()))
+
+    let x = messages;
+
+    for (const r of replies) {
+      console.log(r)
+      x = [...x, { sender: 'bot', text: r }];
+      setMessages(x)
+      await sleep(1700);
+    }
+
+  };
+  
+  useEffect(() => {
+    const load = async () => {
+      await onLoad();
+    };
+    load();
+  }, []);
+
 
   const handleSend = async () => {
     console.log("1")
@@ -76,7 +111,7 @@ function Talk () {
     
   return (
   <div style={{ position: "relative", top: 0, height: "calc(100vh - 10rem)", width:"100%", padding:0, margin:0}}>
-    <h2>Chat with Aiden</h2>
+    <h2>Chat with Aiden, the Financial Aid Advisor!</h2>
     <MainContainer>
       <ChatContainer>
         <MessageList>
@@ -96,7 +131,7 @@ function Talk () {
         onSend={async (innerHtml, textContent, innerText, nodes) => {console.log("HI!"); await handleSend()}} placeholder="Type message here" />
       </ChatContainer>
     </MainContainer>
-  </div>)
+  </div>);
 }
 
 export default  Talk;

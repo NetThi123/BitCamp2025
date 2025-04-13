@@ -4,6 +4,8 @@ import { login, signup, getProtectedResource } from '../util/auth';
 import '../styles/LoginStyle.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from '../components/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
@@ -11,7 +13,8 @@ function Login() {
     const [loginPassword, setLoginPassword] = useState("");
     const [newUser, setNewUser] = useState("");
     const [newPassword, setNewPassword] = useState("");
-
+    const { isLoggedIn, do_login } = useAuth();
+    const navigate = useNavigate();
     
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -25,12 +28,15 @@ function Login() {
             console.log(data)
 
             if (data.success) {
-                toast.success("logged in successfully!");                                   // <---------------------
+                toast.success("logged in successfully!");   
+                do_login()
+                navigate('/me')
+                                                // <---------------------
             } else {
                 toast.error("failed to login! make sure your username and password are correct!");    // <---------------------
             }
 
-            console.log(resp)
+            //console.log(resp)
         }
         setLoginPassword("");
         setLoginUser("");
@@ -54,6 +60,8 @@ function Login() {
                 data = await login(newUser, newPassword)
                 if (data.success) {
                     toast.success("logged in successfully!");            // <---------------------
+                    do_login()
+                    navigate('/me')
                 } else {
                     toast.error("failed to login! make sure your username and password are correct!"); // <---------------------
                 }
@@ -62,7 +70,7 @@ function Login() {
                 toast.error("failed to create account! username must be taken!"); // <---------------------
             }
 
-            console.log(resp)
+            //console.log(resp)
         }
         setNewPassword("");
         setNewUser("");

@@ -147,7 +147,6 @@ def set_me_data():
 
     return jsonify({"message": "Me data updated successfully"}), 200
 
-
 @api_blueprint.route('/api/login', methods=['POST'])
 def login():
     print("start")
@@ -205,4 +204,3 @@ def send_chat():
 
     print(f"User said: {message}")
     return jsonify({"reply": f"Echo: {message}"})"""
-

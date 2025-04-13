@@ -8,6 +8,7 @@ import subprocess
 # Simulate a simple user "database"
 users_db = {}
 
+
 auth_blueprint = Blueprint('auth', __name__)
 
 """
