@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import '../styles/My_CollegesStyles.css';
 import CollegeDropdown from './College_Finder';
 import MyCollege_PopUp from './MyCollege_PopUp';
-import { getColleges } from '../util/auth';
+import { fileUpload, getColleges, getProtectedResource } from '../util/auth';
 
 function AddSchool() {
   const [selectedSchools, setSelectedSchools] = useState([]);
@@ -43,6 +43,36 @@ function AddSchool() {
     );
   };
 
+  const handleUpload = async (file, schoolValue) => {
+    if (!file) {
+      alert("Please select a file first.");
+      return;
+    }
+    
+    const re2s = await getProtectedResource();
+    console.log(re2s)
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("school", schoolValue);
+  
+    const res = await fileUpload(file, schoolValue)
+    // replace the fetch with the correct link 
+    /*const res = await fetch("http://localhost:5000/api/upload_file", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({"a":"a"})
+    });*/
+
+    //const res = await getColleges()
+  
+    //const result = await res.json();
+    console.log(res);
+  };
+  
+
   return (
     <div style={{ marginTop: '5rem', width: '100%', alignContent: 'center'}}>
       <h2 style={{ textAlign: 'center' }}>My Schools</h2>
@@ -78,6 +108,7 @@ function AddSchool() {
         <thead style={{ backgroundColor: '#009879', color: '#ffffff' }}>
           <tr>
             <th style={{ textAlign: 'left', padding: '12px', fontWeight: 'bold', border: '1px solid #ccc' }}>School</th>
+            <th style={{ textAlign: 'left', padding: '12px', fontWeight: 'bold', border: '1px solid #ccc' }}>Select File</th>
             <th style={{ textAlign: 'left', padding: '12px', fontWeight: 'bold', border: '1px solid #ccc' }}>Upload File</th>
           </tr>
         </thead>
@@ -87,18 +118,24 @@ function AddSchool() {
               <td style={{ padding: '15px', border: '1px solid #ccc', color: 'black' }}>{school.label}</td>
               <td style={{ padding: '15px', border: '1px solid #ccc', color: 'black' }}>
               <label className="custom-file-upload">
-                Upload File
+                Select File
                 <input
                     type="file"
                     accept=".pdf,.doc,.docx"
                     onChange={(e) => handleFileUpload(e, school.value)}
                     style={{ display: 'none' }}
-                />    
+                />   
                 </label>
                 {school.file && (
                   <span style={{ marginLeft: '10px' }}>✅ {school.file.name}</span>
                 )}
-              </td>
+                </td>
+                <td style={{ padding: '10px', border: '1px solid #ccc', color: 'black' }}>
+                <button className="custom-file-upload" onClick={() => handleUpload(school.file, school.value)}>Upload File</button>
+                </td>
+
+                
+              
             </tr>
           ))}
         </tbody>

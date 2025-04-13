@@ -2,17 +2,56 @@
     {
       "username": "disha",
       "password": "12345",
-      "universities": ["University of Maryland, College Park", "Princeton University", "Arizona State University"]
+      "universities": ["University of Maryland, College Park", "Princeton University", "Arizona State University"],
+      "me": {
+                "name": "X",
+                "age": "Y",
+                "educationLevel": "Z",
+                "graduationDate": "L",
+                "interests": "A",
+                "major": "B",
+                "careerInterests": "C",
+                "gender": "D",
+                "pronouns": "E",
+                "ethnicity": "F"
+            },
+       "files": [1, 2]
     },
     {
       "username": "theo",
       "password": "298342",
-      "universities": ["Boston College", "Brown University", "Arizona State University"]
+      "universities": ["Boston College", "Brown University", "Arizona State University"],
+      "me": {
+                "name": "X",
+                "age": "Y",
+                "educationLevel": "Z",
+                "graduationDate": "L",
+                "interests": "A",
+                "major": "B",
+                "careerInterests": "C",
+                "gender": "D",
+                "pronouns": "E",
+                "ethnicity": "F"
+            },
+       "files": [1, 2]
     },
     {
       "username": "naan",
       "password": "230955",
-      "universities": ["Clemson University"]
+      "universities": ["Clemson University"],
+      "me": {
+                "name": "X",
+                "age": "Y",
+                "educationLevel": "Z",
+                "graduationDate": "L",
+                "interests": "A",
+                "major": "B",
+                "careerInterests": "C",
+                "gender": "D",
+                "pronouns": "E",
+                "ethnicity": "F"
+            },
+       "files": [1, 2]
     }
   ]
   
