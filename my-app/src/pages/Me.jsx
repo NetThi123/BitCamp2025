@@ -113,16 +113,16 @@ function Me() {
             <br />
             <select name="ethnicity" value={formData.ethnicity} onChange={handleChange}>
               <option value="">Select</option>
-              <option value="american">American Indian or Alaska Native</option>
+              <option value="native-american">American Indian or Alaska Native</option>
               <option value="white">White</option>
               <option value="black">Black or African American</option>
               <option value="hispanic">Hispanic or Latino</option>
-              <option value="middleEastern">Middle Eastern or North African</option>
-              <option value="eastAsian">East Asian</option>
-              <option value="southAsian">South Asian</option>
-              <option value="southEast">Southeast Asian</option>
-              <option value="centralAsian">Central Asian</option>
-              <option value="native">Native Hawaiian or Pacific Islander</option>
+              <option value="middle-eastern">Middle Eastern or North African</option>
+              <option value="east-asian">East Asian</option>
+              <option value="south-asian">South Asian</option>
+              <option value="south-east">Southeast Asian</option>
+              <option value="central-asian">Central Asian</option>
+              <option value="pacific-islander">Native Hawaiian or Pacific Islander</option>
               <option value="mixed">Mixed</option>
               <option value="other">Other</option>
             </select>
@@ -133,15 +133,25 @@ function Me() {
       ) : (
         <div className="preview">
           <p><strong>Name:</strong> {formData.name}</p>
+          <br></br>
           <p><strong>Age:</strong> {formData.age}</p>
+          <br></br>
           <p><strong>Current Level of Education:</strong> {formData.educationLevel}</p>
+          <br></br>
           <p><strong>Expected Graduation Date:</strong> {formData.graduationDate}</p>
+          <br></br>
           <p><strong>Interests:</strong> {formData.interests}</p>
+          <br></br>
           <p><strong>Major:</strong> {formData.major}</p>
+          <br></br>
           <p><strong>Career Interests:</strong> {formData.careerInterests}</p>
+          <br></br>
           <p><strong>Gender:</strong> {formData.gender}</p>
+          <br></br>
           <p><strong>Pronouns:</strong> {formData.pronouns}</p>
+          <br></br>
           <p><strong>Ethnicity:</strong> {formData.ethnicity}</p>
+          <br></br>
           <button className="me-edit-button" onClick={handleEdit}>Edit Info</button>
         </div>
       )}

@@ -15,14 +15,14 @@
     width: 18.75rem;
     min-height: 18.75rem;
     background-color: #f9f9f9;
-    box-shadow: 2px 2px #B1C29E;
+    box-shadow: 0 0 5px #B1C29E;
     align-items: center;
   }
   
   .login-header{
     size: 0.25rem;
     color: #659287;
-    margin-bottom: 1rem;
+    margin: 2rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
@@ -46,5 +46,4 @@
 
   button:hover{
     box-shadow: 0 0 5px #B1C29E;
-    gap: 0.5rem;
   }
