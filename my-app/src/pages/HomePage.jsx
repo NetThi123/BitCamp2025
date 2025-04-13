@@ -58,17 +58,16 @@ function HomePage() {
             
             <VideoBg />
 
-           <div id="next-section" className="next-section" data-aos="fade-up">
+           <div id="next-section" className="next-section" data-aos="fade-down">
                 <h1>From Award Letters to More Aid</h1>
                     <p>Here's where your main content goes.</p>
             </div>
 
             <div className="info1" data-aos="fade-down">
                 <h2>Upload your financial aid offers</h2>
-                <p>Details about this section...</p>
                 </div>
 
-                <div className="info2" data-aos="zoom-in-up">
+                <div className="info2" data-aos="fade-down">
                 <h2>Unpack the financespeak by talking with Aiden</h2>
                 </div>
 
@@ -76,10 +75,10 @@ function HomePage() {
                 <h2>Negotiate for more...</h2>
                 </div>
 
-                <div className="info4 scroll-lock-section" data-aos="fade-up">
+                <div className="info4 scroll-lock-section" data-aos="fade-down">
                     <div className="info4-content">
                         <h2>And ask the what-ifs that keep you up at night</h2>
-                        <p>We’ll help you break them down with data that matters.</p>
+                        <h3>We’ll help you break them down with data that matters.</h3>
                     </div>
                 </div>
 
