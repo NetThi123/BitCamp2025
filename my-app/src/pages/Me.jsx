@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/MeStyle.css'
+import { get_me_data, set_me_data } from '../util/auth';
 
 function Me() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,21 @@ function Me() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  
+  const onLoad = async () => {
+    const data = await get_me_data();
+    // Transform the data to match your expected selectedSchools format
+    console.log(data)
+    if (data)
+    setFormData(data)
+  };
+  
+  useEffect(() => {
+    const load = async () => {
+      await onLoad();
+    };
+    load();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,9 +41,11 @@ function Me() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent page reload
-    console.log("Form submitted", formData); 
+    console.log(await set_me_data(formData))
+
+    console.log("Form submitted", formData);
     setSubmitted(true); // Switch to preview mode
   };
 

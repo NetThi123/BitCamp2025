@@ -55,6 +55,42 @@ def protected():
     return jsonify({"message": f"Hello {current_user}, you accessed a protected route!"})
 
 
+@api_blueprint.route('/api/get_me_data', methods=['GET'])
+@jwt_required()
+def get_me_data():
+    current_user = get_jwt_identity()
+    colleges_collection = client["UserInfo"]["loginInfo"]  # your DB and collection
+    colleges = list(colleges_collection.find({}, {"_id": 0}))  # exclude Mongo's _id
+    cl = None
+    for entry in colleges:
+        if entry["username"] == current_user:
+            cl = entry["me"]
+    
+    return jsonify(cl)
+    
+
+@api_blueprint.route('/api/set_me_data', methods=['POST'])
+@jwt_required()
+def set_me_data():
+    current_user = get_jwt_identity()
+    me_data = request.get_json()
+
+    if not me_data:
+        return jsonify({"error": "No data provided"}), 400
+
+    colleges_collection = client["UserInfo"]["loginInfo"]
+
+    result = colleges_collection.update_one(
+        {"username": current_user},
+        {"$set": {"me": me_data}}
+    )
+
+    if result.matched_count == 0:
+        return jsonify({"error": "User not found"}), 404
+
+    return jsonify({"message": "Me data updated successfully"}), 200
+
+
 """
 @api_blueprint.route("/api/start_chat", methods=["POST"])
 @jwt_required()
