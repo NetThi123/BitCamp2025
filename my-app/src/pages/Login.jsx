@@ -64,7 +64,7 @@ function Login() {
                     onChange={() => {setLoginPassword(event.target.value)}}/>
                 </div>
                 <br></br>
-                <button type="submit" onClick={handleLogin}>LOGIN</button>
+                <button type="submit" className="login-button" onClick={handleLogin}>LOGIN</button>
             </form>
         </div>
         <div class = "login-block">
@@ -82,8 +82,8 @@ function Login() {
                     onChange={() => {setNewPassword(event.target.value)}}/>
                 </div>
                 <br></br>
-                <button type="submit" onClick={handleSignup}>SIGN UP</button>
-                <button type="submit" onClick={test}>TEST</button>
+                <button type="submit" className="login-button" onClick={handleSignup}>SIGN UP</button>
+                <button type="submit" className="login-button" onClick={test}>TEST</button>
             </form>
         </div>
       </div>

@@ -2,7 +2,7 @@
   display: flex;
   gap: 4rem;
   padding: 2rem;
-  margin-left: 15rem;
+  margin-left: 17.5rem;
 }
 
 .login-block{
@@ -23,13 +23,13 @@
     size: 0.25rem;
     color: #659287;
     margin: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .login-form{
-    padding-right: 2.3rem;
-    max-width: 12.5rem;
+    max-width: 14rem;
   }
+
   .login-form p{
     font-family: monospace;
     text-align: left;
@@ -38,10 +38,16 @@
   }
 
   .login-form input{
-    padding: 0.625rem;
     width: 13.75rem;
     margin-right: 2.5rem;
     border-radius: 10px;
+  }
+
+  .login-button{
+    border-radius:0.5rem;
+    width:13.75rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 
   button:hover{
