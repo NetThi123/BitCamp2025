@@ -4,6 +4,8 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 from werkzeug.security import generate_password_hash, check_password_hash
 import subprocess
 
+ai = True # CHANGED
+
 jwt = None
 
 def create_app(config_filename='config.py'):
@@ -22,13 +24,15 @@ def create_app(config_filename='config.py'):
     # Register Blueprints
     from .routes.api import api_blueprint
     from .routes.auth import auth_blueprint
-
+    if ai:
+        from .routes.gemini import gem_blueprint
     @app.route("/")
     def index():
         return redirect("/homepage")
-
     app.register_blueprint(auth_blueprint, url_prefix="")
     app.register_blueprint(api_blueprint, url_prefix="")
+    if ai:
+        app.register_blueprint(gem_blueprint, url_prefix="")
 
 
     @app.route('/static/<path:filename>')
