@@ -65,3 +65,34 @@ export async function send_message(message) {
   const data = await response.json();
   return data.reply;
 }
+
+export async function set_me_data(data) {
+  const address = "/set_me_data"    
+  const token = localStorage.getItem('token');
+
+  const response = await fetch(`${API_URL}` + address, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+  const resp = await response.json();
+  return resp;
+}
+
+export async function get_me_data() {
+  const address = "/get_me_data"    
+  const token = localStorage.getItem('token');
+
+  const response = await fetch(`${API_URL}` + address, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'GET',
+  });
+  const resp = await response.json();
+  return resp;
+}
