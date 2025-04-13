@@ -4,28 +4,28 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Login from "./pages/Login";
 import Me from './pages/Me.jsx';
-import College_Finder from "./pages/College_Finder";
+import My_Colleges from "./pages/My_Colleges";
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
+import Talk from './pages/Talk';
+import CollegeFinder from './pages/CollegeFinder';
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom'
-
 
 function App() {
 
   return (
-    <div>
       <BrowserRouter>
-        <Navbar />
-        
+      <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/homepage" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/me" element={<Me />} />
+          <Route path="/colleges" element={<My_Colleges />} />
+          <Route path="/talk" element={<Talk />} />
         </Routes>
       </BrowserRouter>
 
-    </div>
   );
 }
 

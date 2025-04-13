@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@600&display=swap');
+
+/* Navbar Visibility */
+.navbar-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 5px;
+
+  background-color: #96d6c6;
+  padding: 1.25rem;
+
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container.hide {
+  transform: translateY(-100%);
+}
+
+.navbar-container.show {
+  transform: translateY(0);
+}
+
+/* Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-left: 2rem;
+}
+
+/* Navigation Wrapper */
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Navigation Links */
+.nav-links {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0 1.5rem;
+  text-align: left;
+}
+
+/* Topnav Styles */
+.topnav {
+  position: relative;
+}
+
+.topnav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.topnav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  transition: width ease-in-out 250ms;
+}
+
+.topnav a:hover::before {
+  width: 100%;
+}
+
+.topnav a:hover {
+  color: #ffffff;
+}
+
+/* Login Link Placement */
+nav .login-link {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+

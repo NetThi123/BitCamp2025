@@ -1,0 +1,79 @@
+
+
+#next-section {
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks the content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    height: 100vh; /* Makes the section take up the full viewport height */
+    text-align: center; /* Centers the text */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    padding: 2rem; /* Optional: Add padding */
+}
+
+#next-section h1 {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 1rem; /* Add spacing below the heading */
+    color: #333; /* Optional: Change text color */
+}
+
+#next-section p {
+    font-size: 1.2rem; /* Adjust font size */
+    color: #555; /* Optional: Change text color */
+    background-color: rgba(255, 255, 255, 0)
+}
+
+.info1{
+    padding-top: 200px;
+    background-color: #659287;
+}
+
+.info2{
+    background-color: white;
+    padding-top: 200px;
+    color: #659287;
+}
+
+.info3{
+    padding-top: 200px;
+    background-color: #659287;
+}
+
+.info4{
+    padding-top: 200px;
+    background-color: white;
+    color:#659287;
+}
+
+.scroll-lock-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #fff; /* Customize this */
+  }
+  
+  .info4-content {
+    opacity: 1;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    padding: 2rem;
+  }
+  
+  .info4-content.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  body.scroll-locked {
+    overflow: hidden;
+  }
+  
