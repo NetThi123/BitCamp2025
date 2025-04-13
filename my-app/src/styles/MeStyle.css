@@ -20,9 +20,9 @@
 
 .me-block {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5rem;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 20px;
     margin-bottom: 2rem;
 }
 
@@ -56,6 +56,7 @@
     color:#659287;
     font-size: 0.9rem;
     padding: 0.75rem;
+    background-color: white;
 }
 
 input:focus {
@@ -71,6 +72,7 @@ textarea{
     color:#659287;
     padding: 0.75rem;
     font-size: 0.035rem;
+    background-color: white;
 }
 
 select{
@@ -81,6 +83,7 @@ select{
     border: 1px solid #659287;
     size: 0.75rem;
     width: 19rem;
+    background-color:white;
 }
 
 select:focus {
@@ -104,7 +107,7 @@ textarea:focus{
 }
 
 .me-edit-button{
-    background-color:transparent;
+    background-color:white;
     border: 1px solid #659287;
     width: 19rem;
     border-radius:0.5rem;
