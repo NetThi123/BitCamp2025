@@ -2,37 +2,67 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { login, signup, getProtectedResource } from '../util/auth';
 import '../styles/LoginStyle.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Login() {
     const [loginUser, setLoginUser] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [newUser, setNewUser] = useState("");
     const [newPassword, setNewPassword] = useState("");
+
     
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         
         if (!loginUser || !loginPassword) {
-            alert("Please enter both username and password.");
+            toast.error("Please enter both username and password.");
             return;
         } else {
-            console.log("Logging in with:", loginUser, loginPassword);
-            console.log(login(loginUser, loginPassword))
+            console.log("Logging i11n with:", loginUser, loginPassword);
+            let data = await login(loginUser, loginPassword)
+            console.log(data)
+
+            if (data.success) {
+                toast.success("logged in successfully!");                                   // <---------------------
+            } else {
+                toast.error("failed to login! make sure your username and password are correct!");    // <---------------------
+            }
+
+            console.log(resp)
         }
         setLoginPassword("");
         setLoginUser("");
 
     };
 
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
         
         if (!newUser || !newPassword) {
-            alert("Please enter both username and password.");
+            toast.error("Please enter both username and password.");   // <---------------------
             return;
         } else {
-            console.log("Logging in with:", newUser, newPassword);
-            console.log(signup(newUser, newPassword))
+            console.log("Logging2in with:", newUser, newPassword);
+            let data = await signup(newUser, newPassword);
+
+            if (data.success) {
+                toast.success("account created successfully!");        // <---------------------
+
+                // since we just signed up, log in as well
+                data = await login(newUser, newPassword)
+                if (data.success) {
+                    toast.success("logged in successfully!");            // <---------------------
+                } else {
+                    toast.error("failed to login! make sure your username and password are correct!"); // <---------------------
+                }
+                
+            } else {
+                toast.error("failed to create account! username must be taken!"); // <---------------------
+            }
+
+            console.log(resp)
         }
         setNewPassword("");
         setNewUser("");
@@ -86,6 +116,7 @@ function Login() {
                 <button type="submit" className="login-button" onClick={test}>TEST</button>
             </form>
         </div>
+        <ToastContainer />
       </div>
     );
   }

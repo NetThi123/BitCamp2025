@@ -11,105 +11,92 @@ import {
   MDBTextArea,
   MDBCardHeader,
 } from "mdb-react-ui-kit";
+import { useState } from 'react';
+
 
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import '../styles/TalkStyle.css'
+import { send_message } from "../util/auth";
 
-function Talk() {
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+} from "@chatscope/chat-ui-kit-react";
+
+function Talk () {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+
+  const handleSend = async () => {
+    console.log("1")
+    if (!input.trim()) return;
+    console.log("2")
+
+    const newMessages = [...messages, { sender: 'user', text: input }];
+    setMessages(newMessages);
+
+    try {
+      const reply = await send_message(input)
+      //const res = await axios.post('http://localhost:5000/api/chat', { message: input });
+      setMessages([...newMessages, { sender: 'bot', text: reply }]);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setInput('');
+  };
+
+  /*return (
+    <div style={{ padding: 20 }}>
+      <h2>Chat</h2>
+      <div style={{ height: 300, overflowY: 'auto', border: '1px solid #ccc', padding: 10 }}>
+        {messages.map((msg, idx) => (
+          <div key={idx} style={{ textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
+            <strong>{msg.sender === 'user' ? 'You' : 'Bot'}:</strong> {msg.text}
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: 10 }}>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+          placeholder="Type a message"
+        />
+        <button onClick={handleSend}>Send</button>
+      </div>
+    </div>
+  );*/
+    
   return (
-    <MDBContainer fluid className="py-5 gradient-custom" style={{ width: '100%', height: 'auto', "padding-top":"2rem" }}>
-      <MDBRow>
-        <MDBCol md="6" lg="7" xl="8">
-          <MDBTypography listUnStyled className="text-white">
-            <li className="d-flex justify-content-between mb-4">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                alt="avatar"
-                className="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                width="60"
-              />
-              <MDBCard className="mask-custom">
-                <MDBCardHeader
-                  className="d-flex justify-content-between p-3"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,.3)" }}
-                >
-                  <p className="fw-bold mb-0">Brad Pitt</p>
-                  <p className="text-light small mb-0">
-                    <MDBIcon far icon="clock" /> 12 mins ago
-                  </p>
-                </MDBCardHeader>
-                <MDBCardBody>
-                  <p className="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </li>
-            <li class="d-flex justify-content-between mb-4">
-              <MDBCard className="w-100 mask-custom">
-                <MDBCardHeader
-                  className="d-flex justify-content-between p-3"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,.3)" }}
-                >
-                  <p class="fw-bold mb-0">Lara Croft</p>
-                  <p class="text-light small mb-0">
-                    <MDBIcon far icon="clock" /> 13 mins ago
-                  </p>
-                </MDBCardHeader>
-                <MDBCardBody>
-                  <p className="mb-0">
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
-                alt="avatar"
-                className="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
-                width="60"
-              />
-            </li>
-            <li className="d-flex justify-content-between mb-4">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                alt="avatar"
-                className="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                width="60"
-              />
-              <MDBCard className="mask-custom">
-                <MDBCardHeader
-                  className="d-flex justify-content-between p-3"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,.3)" }}
-                >
-                  <p className="fw-bold mb-0">Brad Pitt</p>
-                  <p className="text-light small mb-0">
-                    <MDBIcon far icon="clock" /> 10 mins ago
-                  </p>
-                </MDBCardHeader>
-                <MDBCardBody>
-                  <p className="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </li>
-            <li className="mb-3">
-              <MDBTextArea label="Message" id="textAreaExample" rows={4} />
-            </li>
-            <MDBBtn color="light" size="lg" rounded className="float-end">
-              Send
-            </MDBBtn>
-          </MDBTypography>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  );
+  <div style={{ position: "relative", top: 0, height: "calc(100vh - 10rem)", width:"100%", padding:0, margin:0}}>
+    <h2>Chat with Aiden</h2>
+    <MainContainer>
+      <ChatContainer>
+        <MessageList>
+          {messages.map((msg, idx) => (
+            <Message
+            model={{
+              message: msg.text,
+              sentTime: "just now",
+              sender: msg.sender === 'user' ? 'You' : 'Aiden',
+              direction: msg.sender === 'user' ? "outgoing" : "incoming",
+            }}
+            />
+          ))}
+          
+        </MessageList>
+        <MessageInput onChange={(i, j, k, l) => {setInput(j);}} 
+        onSend={async (innerHtml, textContent, innerText, nodes) => {console.log("HI!"); await handleSend()}} placeholder="Type message here" />
+      </ChatContainer>
+    </MainContainer>
+  </div>)
 }
 
-export default Talk;
+export default  Talk;

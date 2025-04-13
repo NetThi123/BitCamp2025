@@ -20,7 +20,8 @@ def signup():
     if username in users_db:
         return jsonify({"success": False, "message": "Username already exists."}), 400
 
-    hashed_password = generate_password_hash(password)
+    #hashed_password = generate_password_hash(password)   <-------- HASH!
+    hashed_password = password
     users_db[username] = hashed_password
     return jsonify({"success": True, "message": "User created successfully."})
 
@@ -31,7 +32,8 @@ def login():
     password = data.get('password')
 
     stored_password = users_db.get(username)
-    if stored_password and check_password_hash(stored_password, password):
+    #if stored_password and check_password_hash(stored_password, password):   <-------- HASH!
+    if stored_password and stored_password == password:
         access_token = create_access_token(identity=username)
         return jsonify({"success": True, "token": access_token})
 

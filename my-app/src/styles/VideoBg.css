@@ -86,6 +86,16 @@
     color: black;
   }
 
+  .video-overlay h2 {
+    font-family: 'Playfair Display', serif; /* Example font */
+    font-size: 5rem; /* Adjust font size */
+    font-weight: bold; /* Adjust font weight */
+    color: #f0f0f0; /* Adjust text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add text shadow for better readability */
+    margin-top: 1rem; /* Add spacing above the heading */
+    margin-bottom: 1rem; /* Add spacing below the heading */
+  }
+  
   .video-overlay p {
     font-family: 'Monospace'; /* Example font */
     font-size: 1.5rem; /* Adjust font size */
