@@ -125,7 +125,8 @@ function CollegeDropdown({ onSelect }) {
       backgroundColor: '#007bff',
       color: '#fff',
       border: 'none',
-      padding: '8px 16px',
+      paddingTop: '8px 16px',
+      marginTop: '1rem',
       borderRadius: '6px',
       fontWeight: 'bold',
       cursor: 'pointer'

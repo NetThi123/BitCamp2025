@@ -26,7 +26,7 @@ function AddSchool() {
   };
 
   return (
-    <div style={{ margin: '5rem', width: '100%', alignContent: 'center' }}>
+    <div style={{ marginTop: '5rem', width: '100%', alignContent: 'center'}}>
       <h2 style={{ textAlign: 'center' }}>My Schools</h2>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
         <button
@@ -36,7 +36,7 @@ function AddSchool() {
             color: '#000',
             border: '1px solid #ccc',
             borderRadius: '8px',
-            padding: '10px 20px',
+            paddingBottom: '10px 20px',
             fontSize: '16px',
             fontWeight: 'bold',
             cursor: 'pointer',
@@ -48,9 +48,10 @@ function AddSchool() {
       </div>
 
       <table style={{
-        width: '100%',
+        width: '80%',
         borderCollapse: 'collapse',
         marginTop: '2rem',
+        marginLeft: '10%',
         fontFamily: 'Trebuchet MS, sans-serif',
         border: '1px solid #ccc',
         borderRadius: '10px',
@@ -65,8 +66,8 @@ function AddSchool() {
         <tbody>
           {selectedSchools.map((school, index) => (
             <tr key={school.value} style={{ backgroundColor: index % 2 === 0 ? '#f3f3f3' : '#ffffff' }}>
-              <td style={{ padding: '12px', border: '1px solid #ccc', color: 'black' }}>{school.label}</td>
-              <td style={{ padding: '12px', border: '1px solid #ccc', color: 'black' }}>
+              <td style={{ padding: '15px', border: '1px solid #ccc', color: 'black' }}>{school.label}</td>
+              <td style={{ padding: '15px', border: '1px solid #ccc', color: 'black' }}>
               <label className="custom-file-upload">
                 Upload File
                 <input
