@@ -9,7 +9,7 @@ function Login() {
     const [newUser, setNewUser] = useState("");
     const [newPassword, setNewPassword] = useState("");
     
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         
         if (!loginUser || !loginPassword) {
@@ -17,22 +17,47 @@ function Login() {
             return;
         } else {
             console.log("Logging in with:", loginUser, loginPassword);
-            console.log(login(loginUser, loginPassword))
+            let data = await login(loginUser, loginPassword)
+
+            if (data.success) {
+                alert("logged in successfully!")                                   // <---------------------
+            } else {
+                alert("failed to login! make sure your username and password are correct!")    // <---------------------
+            }
+
+            console.log(resp)
         }
         setLoginPassword("");
         setLoginUser("");
 
     };
 
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
         
         if (!newUser || !newPassword) {
-            alert("Please enter both username and password.");
+            alert("Please enter both username and password.");   // <---------------------
             return;
         } else {
             console.log("Logging in with:", newUser, newPassword);
-            console.log(signup(newUser, newPassword))
+            let data = await signup(newUser, newPassword);
+
+            if (data.success) {
+                alert("account created successfully!")        // <---------------------
+
+                // since we just signed up, log in as well
+                data = await login(newUser, newPassword)
+                if (data.success) {
+                    alert("logged in successfully!")            // <---------------------
+                } else {
+                    alert("failed to login! make sure your username and password are correct!") // <---------------------
+                }
+                
+            } else {
+                alert("failed to create account! username must be taken!") // <---------------------
+            }
+
+            console.log(resp)
         }
         setNewPassword("");
         setNewUser("");
