@@ -38,6 +38,17 @@ export async function getProtectedResource() {
   return response.json();
 }
 
+export async function getColleges() {
+  const address = "/get_colleges"    
+
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API_URL}` + address, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  return response.json();
+
 export async function send_message(message) {
   const address = "/send_chat"    
   const token = localStorage.getItem('token');
