@@ -50,6 +50,23 @@ export async function getColleges() {
   return response.json();
 }
 
+export async function fileUpload(file, username) {
+
+  const token = localStorage.getItem("token");
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("school", username);
+
+  const response = await fetch(`${API_URL}/upload_file`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+    body: formData,
+  });
+  return response.json();
+}
+
 export async function send_message(message) {
   const address = "/send_chat"    
   const token = localStorage.getItem('token');

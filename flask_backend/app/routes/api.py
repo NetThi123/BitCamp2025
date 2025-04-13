@@ -14,6 +14,10 @@ mongo_uri = "mongodb+srv://bitcamp2025hacakthon:HcjMIS1DpOsYwhNh@user-info.o9eoj
 client = MongoClient(mongo_uri)
 api_blueprint = Blueprint('api', __name__)
 
+# creates folder to store files
+UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 # This is an API route that always returns the same thing:
 @api_blueprint.route("/api/get_colleges", methods=['GET'])
 @jwt_required()
@@ -54,6 +58,40 @@ def protected():
     # In this case, just return a hello message with their name.
     return jsonify({"message": f"Hello {current_user}, you accessed a protected route!"})
 
+# This is an API route that always returns the same thing:
+@api_blueprint.route("/api/upload_file", methods=['POST'])
+@jwt_required()
+def upload_file():
+    print(2)
+    current_user = get_jwt_identity()
+    print(3)
+    print(request.files)
+    print(request.form.get('school'))
+
+    file = request.files.get("file")
+    print(4)
+
+    if not file or file.filename == '':
+        return {"error": "No file uploaded."}, 400
+    
+    if not (file.filename.lower().endswith('.pdf') or file.filename.lower().endswith('.doc') or file.filename.lower().endswith('.docx')):
+        return {"error": "Only PDF files allowed."}, 400
+    
+    existing_files = os.listdir(UPLOAD_FOLDER)
+    file_id = len(existing_files) + 1
+    saved_filename = f"{file_id}.pdf"
+
+    file.save(os.path.join(UPLOAD_FOLDER, saved_filename))
+
+    users = client["UserInfo"]["loginInfo"]  # your DB and collection
+    users.update_one(
+        {"username": current_user},  # or use _id if preferred
+        {"$push": {"files": {"id": file_id, "school": request.form.get('school')}}}  # just the number
+    )
+
+    return jsonify({"message": f"Success"})
+
+   
 
 @api_blueprint.route('/api/get_me_data', methods=['GET'])
 @jwt_required()
@@ -100,3 +138,4 @@ def send_chat():
 
     print(f"User said: {message}")
     return jsonify({"reply": f"Echo: {message}"})"""
+
