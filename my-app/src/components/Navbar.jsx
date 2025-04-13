@@ -8,6 +8,7 @@ function Navbar() {
                 <div className="topnav">
                     <a className="active" href="#">Home</a>
                     <Link to="/login">Log In/Sign Up</Link>
+                    <Link to="/me">Me</Link>
                 </div>
             </nav>
         </div>
