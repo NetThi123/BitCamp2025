@@ -20,15 +20,12 @@ function AddSchool() {
    // Auto-call when page loads
    const onLoad = async () => {
     const data = await getColleges();
-    console.log("Hello I am here");
-    console.log(data.colleges)
     // Transform the data to match your expected selectedSchools format
     const formatted = data.colleges.map(name => ({
       label: name,
       value: name.toLowerCase().replace(/\s+/g, '-'),
       file: null
     }));
-    console.log("Hello I am now here heheh");
     setSelectedSchools(formatted);
   };
 
