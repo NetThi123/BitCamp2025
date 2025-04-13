@@ -36,3 +36,14 @@ def protected():
     
     # In this case, just return a hello message with their name.
     return jsonify({"message": f"Hello {current_user}, you accessed a protected route!"})
+
+
+"""
+@api_blueprint.route("/api/start_chat", methods=["POST"])
+@jwt_required()
+def send_chat():
+    data = request.get_json()
+    current_user = get_jwt_identity()
+
+    print(f"User said: {message}")
+    return jsonify({"reply": f"Echo: {message}"})"""

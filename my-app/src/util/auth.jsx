@@ -37,3 +37,19 @@ export async function getProtectedResource() {
   });
   return response.json();
 }
+
+export async function send_message(message) {
+  const address = "/send_chat"    
+  const token = localStorage.getItem('token');
+
+  const response = await fetch(`${API_URL}` + address, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify({message}),
+  });
+  const data = await response.json();
+  return data.reply;
+}
