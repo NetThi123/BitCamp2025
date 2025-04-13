@@ -69,18 +69,19 @@ def initial_prompt(username):
                cl = entry
      if cl == None:
           raise ValueError
-
-     cl['files'] = []  # DELETE THIS LINE
      
      me = cl["me"]
      x = "Hello. I am your initial prompter, and I will be speaking with you briefly before putting you directly in contact with a user. For today, you are a financial advisor who is helping a student decide where they will be attending college based primarily on the financial factors involved. I will soon upload some files pertaining to their offers to attend various universities. Once I have uploaded all these files, you will then be talking to the student. Be respectful and help them make a wise financial decision about where they should attend university. They also filled out some forms before their consultation with you, the data from which I will send now. " + \
-     f"\nName: {me['name']}, age: {me['age']}, ethnicity: {me['ethnicity']}, graduation date: {me['graduationDate']}, intended major(s): {me['major']}, gender: {me['gender']}, pronouns: {me['pronouns']}, education level: {me['educationLevel']}. Their 'career interests' answer was: {me['careerInterests']}. Their 'interests' answer was {me['interests']}.\n" + \
-     "They have also been given the option of attaching their financial aid offers from these universities, as well as any other relevant documentation regarding the financial offers for each university. " + \
+     f"\nName: {me['name']}, age: {me['age']}, ethnicity: {me['ethnicity']}, graduation date: {me['graduationDate']}, intended major(s): {me['major']}, gender: {me['gender']}, pronouns: {me['pronouns']}, education level: {me['educationLevel']}. Their 'career interests' answer was: {me['careerInterests']}. Their 'interests' answer was {me['interests']}.\n"
+     x += "The colleges they have marked themselves as INTERESTED IN are as follows: "
+     for i in range(len(cl['universities'])):
+          x += f"{cl['universities'][i]}, "
+     x += ".\nThey have also been given the option of attaching their financial aid offers from these universities, as well as any other relevant documentation regarding the financial offers for each university. " + \
      f"They uploaded {len(cl['files'])} images. "
      for i in range(len(cl['files'])):
           x += f"Image #{i} is regarding {cl['files'][i]['school']}. "
      x += "I will now send you those images, if there are any. \n\n"
-     x += "After sending all relevant images, I will send the text message 'DONE -- TALK TO THE STUDENT'. When this message is recieved, you will no longer be speaking with me, and instead with the student. Therefore, at that time you should send your initial message to the student, which should describe the likely cost of attendance at the various schools they are considering, as well as your initial thoughts on whether each option makes financial sense, as well as any prompts for further details they could give you to help you make informed advice. Please break this initial response (which may be somewhat long) into 3 short-ish messages, separated by the string '------' (six dashes). Do you understand all that?"
+     x += "After sending all relevant images, I will send the text message 'DONE -- TALK TO THE STUDENT'. When this message is recieved, you will no longer be speaking with me, and instead with the student. Therefore, at that time you should send your initial message to the student, which should describe the likely cost of attendance at the various schools they are considering, as well as your initial thoughts on whether each option makes financial sense, as well as any prompts for further details they could give you to help you make informed advice. Please break this initial response (which may be somewhat long) into 3 short-ish messages, separated by the string '------' (six dashes). Bear in mind, however, that first impressions are everything. Don't just ask questions, make sure you give the student at least SOME numbers/estimates to prove you can be useful. Do you understand all that?"
      print(f"-------------\n{x}\n-------------------")
 
      return x
@@ -112,6 +113,8 @@ def start_chat():
                cl = entry
      
      # Send files
+     for i in range(len(cl['files'])):
+          print(get_user_response(current_user, f"uploads/{cl['files'][i]}.png"))
 
      resp = get_user_response(current_user, "DONE -- TALK TO THE STUDENT")
      print(f"BOT: {resp}")
