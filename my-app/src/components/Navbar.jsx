@@ -21,11 +21,15 @@ function Navbar() {
 
     return (
         <div className={`navbar-container ${isVisible ? 'show' : 'hide'}`}>
-            <div className="logo">My Logo</div>
+            <Link to="/homepage" className="logo">My Logo</Link>
             <nav>
                 <div className="topnav">
+
                     <Link to="/homepage">Home</Link>
                     <Link to="/colleges">My College</Link>
+                    <Link to="/me">Me</Link>
+                    <Link to="/talk">talk with aiden</Link>
+
                     <Link to="/login" className="login-link">Log In/Sign Up</Link>
                 </div>
             </nav>
