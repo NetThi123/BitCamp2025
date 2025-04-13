@@ -11,21 +11,23 @@ function Login() {
     const [loginPassword, setLoginPassword] = useState("");
     const [newUser, setNewUser] = useState("");
     const [newPassword, setNewPassword] = useState("");
+
     
     const handleLogin = async (e) => {
         e.preventDefault();
         
         if (!loginUser || !loginPassword) {
-            alert("Please enter both username and password.");
+            toast.error("Please enter both username and password.");
             return;
         } else {
-            console.log("Logging in with:", loginUser, loginPassword);
+            console.log("Logging i11n with:", loginUser, loginPassword);
             let data = await login(loginUser, loginPassword)
+            console.log(data)
 
             if (data.success) {
-                toast.success("logged in successfully!")                                   // <---------------------
+                toast.success("logged in successfully!");                                   // <---------------------
             } else {
-                toast.error("failed to login! make sure your username and password are correct!")    // <---------------------
+                toast.error("failed to login! make sure your username and password are correct!");    // <---------------------
             }
 
             console.log(resp)
@@ -42,22 +44,22 @@ function Login() {
             toast.error("Please enter both username and password.");   // <---------------------
             return;
         } else {
-            console.log("Logging in with:", newUser, newPassword);
+            console.log("Logging2in with:", newUser, newPassword);
             let data = await signup(newUser, newPassword);
 
             if (data.success) {
-                toast.success("account created successfully!")        // <---------------------
+                toast.success("account created successfully!");        // <---------------------
 
                 // since we just signed up, log in as well
                 data = await login(newUser, newPassword)
                 if (data.success) {
-                    toast.success("logged in successfully!")            // <---------------------
+                    toast.success("logged in successfully!");            // <---------------------
                 } else {
-                    toast.error("failed to login! make sure your username and password are correct!") // <---------------------
+                    toast.error("failed to login! make sure your username and password are correct!"); // <---------------------
                 }
                 
             } else {
-                toast.error("failed to create account! username must be taken!") // <---------------------
+                toast.error("failed to create account! username must be taken!"); // <---------------------
             }
 
             console.log(resp)
