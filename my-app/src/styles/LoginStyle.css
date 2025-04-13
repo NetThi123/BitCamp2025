@@ -21,7 +21,7 @@
   
   .login-header{
     size: 0.25rem;
-    color: #659287;
+    color: #E8B86D;
     margin: 2rem;
     font-family: 'Montserrat', sans-serif;
   }
@@ -33,7 +33,7 @@
   .login-form p{
     font-family: monospace;
     text-align: left;
-    color:#659287;
+    color:#E8B86D;
     background-color: transparent;
   }
 
@@ -53,5 +53,5 @@
   }
 
   button:hover{
-    box-shadow: 0 0 5px #B1C29E;
+    box-shadow: 0 0 5px #CEDF9F;
   }

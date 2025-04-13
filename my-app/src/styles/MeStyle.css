@@ -10,7 +10,7 @@
 .myInfoHead {
     margin-top: 2rem;
     font-family: 'Montserrat', sans-serif;
-    color:#659287;
+    color:#E8B86D
 }
 
 .me-user-form{
@@ -45,7 +45,7 @@
 .me-user-form, input{
     border-radius: 0.5rem;
     margin-top: 0.2rem;
-    border: 1px solid #659287;
+    border: 1px solid #E8B86D;
     padding: 8px;
     font-size: 0.75rem;
     width: 19rem;
@@ -57,20 +57,20 @@
     font-size: 0.9rem;
     padding: 0.75rem;
     background-color: white;
-    color:#659287;
+    color:#E8B86D;
 }
 
 input:focus {
-    box-shadow: 0 4px 12px #B1C29E;
+    box-shadow: 0 4px 12px #CEDF9F;
     outline: none;
 }
 
 textarea{
     border-radius: 0.5rem;
-    border:#659287;
+    border:#E8B86D;
     width: 19rem;
     height:5rem;
-    color:#659287;
+    color:#E8B86D;
     padding: 0.75rem;
     font-size: 0.035rem;
     background-color: white;
@@ -80,20 +80,20 @@ select{
     border-radius: 0.5rem;
     padding: 0.5rem;
     font-family: monospace;
-    color:#659287;
-    border: 1px solid #659287;
+    color:#E8B86D;
+    border: 1px solid #E8B86D;
     size: 0.75rem;
     width: 19rem;
     background-color:white;
 }
 
 select:focus {
-    box-shadow: 0 4px 12px #B1C29E;
+    box-shadow: 0 4px 12px #CEDF9F;
     outline: none;
 }
 
 textarea:focus{
-    box-shadow: 0 4px 12px #B1C29E;
+    box-shadow: 0 4px 12px #CEDF9F;
     outline: none;
 }
 
@@ -101,7 +101,7 @@ textarea:focus{
     margin-top: 3rem;
     margin: 1rem;
     border-radius:0.5rem;
-    background-color: #B1C29E;
+    background-color: #E8B86D;
     width: 17.5rem;
     height: 3rem;
     font-size: 1rem;
@@ -109,26 +109,26 @@ textarea:focus{
 
 .me-edit-button{
     background-color:white;
-    border: 1px solid #659287;
+    border: 1px solid #E8B86D;
     width: 19rem;
     border-radius:0.5rem;
-    color: #659287;
+    color: #E8B86D;
     margin-top: 1rem;
     margin-left: 1.5rem;
 }
 
 .me-button:hover{
-    box-shadow: 0 0 5px #B1C29E;
+    box-shadow: 0 0 5px #CEDF9F;
 }
 
 .me-edit.button:hover{
-    box-shadow: 0 0 5px #B1C29E;
+    box-shadow: 0 0 5px #CEDF9F;
 }
 
 .preview{
     width: 50rem;
     background-color: white;
-    color:#659287;
+    color:#E8B86D;
     padding: 3rem;
     margin-bottom: 1rem;
     line-height: 1.4;
@@ -149,7 +149,7 @@ textarea:focus{
 
 .preview p{
     background: transparent;
-    color:#659287;
+    color:#E8B86D;
     font-family: monospace;
 }
 

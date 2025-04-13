@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
-import image from '../assets/image0.png'
 import { useAuth } from './AuthContext';
+import image0 from '../assets/image0.png'; // adjust path as needed
 
 function Navbar({ loggedIn }) {
     const [isVisible, setIsVisible] = useState(true);
@@ -26,8 +26,8 @@ function Navbar({ loggedIn }) {
     return loggedIn ? (
         <div className={`navbar-container ${isVisible ? 'show' : 'hide'}`}>
             <div className="icon">
-                <img src={image} alt="Aiden the Dinosaur"/>
-                <Link to="/homepage" className="logo">AIDEN</Link>
+                <img src={image0} alt="Aiden the Dinosaur" />
+                <Link to="/homepage" className="logo">AIDEN.ai</Link>
             </div>
             <nav>
                 <div className="topnav">
@@ -42,7 +42,10 @@ function Navbar({ loggedIn }) {
             </nav>
         </div>
     ) : (<div className={`navbar-container ${isVisible ? 'show' : 'hide'}`}>
-        <Link to="/homepage" className="logo">My Logo</Link>
+        <div className="icon">
+                <img src={image0} alt="Aiden the Dinosaur" />
+                <Link to="/homepage" className="logo">AIDEN.ai</Link>
+            </div>
         <nav>
             <div className="topnav">
 
