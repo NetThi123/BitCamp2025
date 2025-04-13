@@ -60,22 +60,53 @@ function HomePage() {
 
            <div id="next-section" className="next-section" data-aos="fade-down">
                 <h1>From Award Letters to More Aid</h1>
-                    <p>Here's where your main content goes.</p>
+                    <button
+                    onClick={() =>
+                    document.getElementById('section-1').scrollIntoView({ behavior: 'smooth' })
+                    }
+                    className="scroll-button1"
+                >
+                    ↓ 
+                    </button>
             </div>
 
-            <div className="info1" data-aos="fade-down">
+            <div id="section-1" className="info1" data-aos="fade-down">
                 <h2>Upload your financial aid offers</h2>
+                    <button
+                    onClick={() =>
+                    document.getElementById('section-2').scrollIntoView({ behavior: 'smooth' })
+                    }
+                    className="scroll-button2"
+                >
+                    ↓ 
+                    </button>
                 </div>
 
-                <div className="info2" data-aos="fade-down">
-                <h2>Unpack the financespeak by talking with Aiden</h2>
+                <div id="section-2" className="info2" data-aos="fade-down">
+                    <h2>Unpack the financespeak by talking with Aiden</h2>
+                        <button
+                        onClick={() =>
+                        document.getElementById('section-3').scrollIntoView({ behavior: 'smooth' })
+                        }
+                        className="scroll-button3"
+                    >
+                        ↓ 
+                        </button>
                 </div>
 
-                <div className="info3" data-aos="fade-down">
-                <h2>Negotiate for more...</h2>
+                <div id="section-3" className="info3" data-aos="fade-down">
+                    <h2>Negotiate for more...</h2>
+                        <button
+                        onClick={() =>
+                        document.getElementById('section-4').scrollIntoView({ behavior: 'smooth' })
+                        }
+                        className="scroll-button4"
+                    >
+                        ↓ 
+                        </button>
                 </div>
 
-                <div className="info4 scroll-lock-section" data-aos="fade-down">
+                <div id="section-4" className="info4 scroll-lock-section" data-aos="fade-down">
                     <div className="info4-content">
                         <h2>And ask the what-ifs that keep you up at night</h2>
                         <h3>We’ll help you break them down with data that matters.</h3>

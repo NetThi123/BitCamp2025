@@ -23,32 +23,24 @@
     background-color: rgba(255, 255, 255, 0)
 }
 
-.info1{
-    display: flex; /* Enables Flexbox */
-    flex-direction: column; /* Stacks the content vertically */
-    padding-block: 200px;
-    font-family: 'Special Gothic Condensed One', sans-serif;
-    padding-top: 200px;
-    background-color: #659287;
+.info1, .info3 {
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Stacks the content vertically */
+  padding-block: 500px; /* Match the padding of .info2 and .info4 */
+  font-family: 'Playfair Display', serif; /* Match the font-family */
+  background-color: #659287; /* Keep the background color consistent */
+  color: #000000; /* Match the text color */
+  padding-top: 500px; /* Match the top padding */
 }
 
 .info2{
     display: flex; /* Enables Flexbox */
     flex-direction: column; /* Stacks the content vertically */
-    height: 70vh; /* Makes the section take up the full viewport height */
+    padding-block: 200px;
     font-family: 'Playfair Display', serif;
     background-color: white;
     padding-top: 200px;
     color: #000000;
-}
-
-.info3{
-    display: flex; /* Enables Flexbox */
-    flex-direction: column; /* Stacks the content vertically */
-    padding-block: 150px;
-    font-family: 'Playfair Display', serif;
-    padding-top: 150px;
-    background-color: #659287;
 }
 
 .info4{
@@ -58,6 +50,7 @@
     padding-top: 200px;
     background-color: white;
     color:#659287;
+    align-content: center;
 }
 
 .info1 h2, .info2 h2, .info3 h2, .info4 h2 {
@@ -90,17 +83,105 @@
     overflow: hidden;
     background-color: #fff; /* Customize this */
   }
+
+  .scroll-button1 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.529);
+    border: 2px #8c5078;;
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  
+  .scroll-button1:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .scroll-button2 {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0 auto;
+    margin-top: -10.5rem; /* Adjust this value to move the button up */
+    background-color: rgba(255, 255, 255, 0.529);
+    border: 2px #8c5078;;
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: block; /* Ensures the button takes up its own line */
+    text-align: center; /* Centers the text inside the button */
+  }
+  
+  .scroll-button2:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .scroll-button3 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 12rem; /* Adds spacing between the text and the button */
+    padding-bottom: 9rem; /* Adds spacing between the button and the next element */
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.529);
+    border: 2px #8c5078;
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: block; /* Ensures the button takes up its own line */
+    align-self: center; /* Centers the button horizontally if inside a flex container */
+    text-align:center;
+  }
+  
+  .scroll-button3:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .scroll-button4 {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0 auto;
+    margin-top: -10.5rem; /* Adjust this value to move the button up */
+    background-color: rgba(255, 255, 255, 0.529);
+    border: 2px #8c5078;;
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: block; /* Ensures the button takes up its own line */
+    text-align: center; /* Centers the text inside the button */
+  }
+  
+  .scroll-button4:hover {
+    background-color: white;
+    color: black;
+  }
   
   .info4-content p {
-    opacity: 1;
-    text-align: center;
-    display: flex;
-    background-color: #65928700;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 800px;
-    padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-height: 20vh; /* Makes the section fill the screen */
+      padding: 4rem;
   }
+
+
   
   .info4-content.animate-in {
     opacity: 1;
