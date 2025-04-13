@@ -24,8 +24,11 @@ function Navbar() {
             <div className="logo">My Logo</div>
             <nav>
                 <div className="topnav">
+
+                    <Link to="/me">Me</Link>
                     <Link to="/homepage">Home</Link>
                     <Link to="/colleges">My College</Link>
+                    <Link to="/talk">talk with aiden</Link>
                     <Link to="/login" className="login-link">Log In/Sign Up</Link>
                 </div>
             </nav>
