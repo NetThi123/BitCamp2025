@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
-
+    const [isVisible, setIsVisible] = useState(true);
 
     const handleScroll = () => {
         const videoSection = document.getElementById('video-section');
