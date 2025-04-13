@@ -48,6 +48,7 @@ export async function getColleges() {
     },
   });
   return response.json();
+}
 
 export async function send_message(message) {
   const address = "/send_chat"    
