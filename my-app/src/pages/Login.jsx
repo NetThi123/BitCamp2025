@@ -68,7 +68,7 @@ function Login() {
             </form>
         </div>
         <div class = "login-block">
-            <h2 class = "login-header">SIGN UP</h2>
+            <h2 class = "login-header">NEW? SIGN UP</h2>
             <form class = "login-form">
             <div class = "form-field">
                 <p>USERNAME</p>
