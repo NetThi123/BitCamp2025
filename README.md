@@ -1,5 +1,6 @@
 # BitCamp2025 Hackathon
-# Project Name
+# Project Name: Aiden.ai
+Devpost Link: https://devpost.com/software/aidenai-helping-students-with-college-financial-aid?ref_content=my-projects-tab&ref_feature=my_projects
 AidenAI: Your AI Advisor for Financial Aid
 The financial aid process is complex and difficult — but AidenAI harnesses the power of Google Gemini to help students from all backgrounds make informed decisions and negotiate for better aid.
 
